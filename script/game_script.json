@@ -1,0 +1,5972 @@
+{
+  "meta": {
+    "title": "夜の隣席",
+    "title_en": "yoru-no-rinseki",
+    "language": "ja",
+    "orientation": "portrait-9:16",
+    "start": "prologue_01",
+    "name_variable": "name",
+    "name_default": "ハル",
+    "age_rating": "all-ages",
+    "ending_count_min": "6 Good + 1 Normal",
+    "route_rule": {
+      "min": 3,
+      "description": "共通ルートの出会い選択肢は各ヒロインに好感度+1または+2。最終の『空いた夜』で一人の場所を訪れると、そのヒロインに+2。『誰のところにも寄らない』は加算なし。個別ルート入場は、好感度が最大かつ3以上のヒロイン。最大が3未満、または誰も訪れておらず全員が2以下ならノーマルエンド。同点（将来の選択肢追加に備え）は共通ルートの出会い順：リリア → ルミア → クレア → セシリア → セレーヌ → ルシェ。現行の点数配分では、訪問した一人が必ず単独首位になる。",
+      "tiebreak": [
+        "lilia",
+        "lumia",
+        "claire",
+        "cecilia",
+        "selene",
+        "luche"
+      ],
+      "routes": {
+        "lilia": "lilia_1",
+        "lumia": "lumia_1",
+        "claire": "claire_1",
+        "cecilia": "cecilia_1",
+        "selene": "selene_1",
+        "luche": "luche_1"
+      },
+      "fallback": "normal_1",
+      "scoring": {
+        "intro": "+1 または +2（各ヒロインの初会合）",
+        "visit": "空いた夜の訪問で対象に+2。訪問しなければ加算なし",
+        "threshold": 3
+      }
+    }
+  },
+  "characters": {
+    "lumia": "ルミア",
+    "selene": "セレーヌ",
+    "lilia": "リリア",
+    "cecilia": "セシリア",
+    "luche": "ルシェ",
+    "claire": "クレア",
+    "luche_reflect": "ルシェ（反射）"
+  },
+  "expressions": {
+    "base": [
+      "neutral",
+      "smile",
+      "shy",
+      "surprised",
+      "sad"
+    ],
+    "extra": {
+      "cecilia": [
+        "smile_eye"
+      ],
+      "selene": [
+        "shy_loose",
+        "sad_loose",
+        "smile_loose"
+      ],
+      "lumia": [
+        "profile"
+      ],
+      "luche": [
+        "wink"
+      ],
+      "lilia": [
+        "shy_smile"
+      ]
+    }
+  },
+  "start": "prologue_01",
+  "scenes": [
+    {
+      "id": "prologue_01",
+      "title": "到着",
+      "location": "坂の途中・シェアハウスの外",
+      "time": "夕方から夜へ",
+      "bgm": "静かな夜",
+      "bg": "bg_sharehouse_ext_dusk",
+      "commands": [
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "仕事の都合で、この街に越してきた。長くいるつもりかと聞かれると、まだ答えを持っていない。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "日中は段ボールの山に囲まれて、足が向くのは決まって夜のほうだった。駅前の明かりより、坂の途中の窓のほうが近い。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "シェアハウスは、細い坂の途中にある。隣の部屋の窓だけ、もう灯りがついていた。誰かが先に、この夜の時間を使っている。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "玄関の鍵に、名前を書くタグが下がっている。この街では、なんと呼ばれたいだろう。"
+        },
+        {
+          "type": "input_name",
+          "variable": "name",
+          "default": "ハル"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "タグに、{name}、と書いた。"
+        },
+        {
+          "type": "jump",
+          "goto": "prologue_02"
+        }
+      ]
+    },
+    {
+      "id": "prologue_02",
+      "title": "荷解き",
+      "location": "シェアハウス・自室と廊下",
+      "time": "夜",
+      "bgm": "静かな室内",
+      "bg": "bg_sharehouse_room_night",
+      "commands": [
+        {
+          "type": "bg",
+          "id": "bg_sharehouse_room_night"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "荷物は、寝られればいい位置にだけどかした。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "腹が減っている。近所の店は、もう閉まりかけているはずだった。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "薄い壁の向こうから、甘い匂いがする。揚げたての油と、砂糖。"
+        },
+        {
+          "type": "jump",
+          "goto": "common_n1_lilia"
+        }
+      ]
+    },
+    {
+      "id": "common_n1_lilia",
+      "title": "お隣さん",
+      "location": "シェアハウス・廊下",
+      "time": "夜",
+      "bgm": "隣室の陽気さ",
+      "bg": "bg_sharehouse_hall_night",
+      "commands": [
+        {
+          "type": "bg",
+          "id": "bg_sharehouse_hall_night"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "隣のドアが、細く開いた。"
+        },
+        {
+          "type": "cg",
+          "id": "cg_lilia_1"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "白い髪が隙間からのぞき、菓子の袋がゆらりと揺れる。笑って、八重歯が少しだけ見える。"
+        },
+        {
+          "type": "text",
+          "speaker": "リリア",
+          "text": "お隣さん、夜食いる？"
+        },
+        {
+          "type": "cg_hide"
+        },
+        {
+          "type": "show",
+          "char": "lilia",
+          "expr": "smile",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "白い花の髪飾りに、黒いリボン。目元が、うっすら赤い。"
+        },
+        {
+          "type": "text",
+          "speaker": "リリア",
+          "text": "今日、越してきたでしょ。音、聞こえたから。"
+        },
+        {
+          "type": "text",
+          "speaker": "リリア",
+          "text": "私、隣のリリア。はじめまして、というより先に、お腹すいてない？"
+        },
+        {
+          "type": "text",
+          "speaker": "リリア",
+          "text": "名前、なんていうの？"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "僕は、さっきタグに書いた名前を告げた。"
+        },
+        {
+          "type": "text",
+          "speaker": "リリア",
+          "text": "じゃあ{name}。覚えた。"
+        },
+        {
+          "type": "text",
+          "speaker": "リリア",
+          "text": "引っ越したては、みんな夜に食べ物を忘れるんだよ。経験者。"
+        },
+        {
+          "type": "choice",
+          "options": [
+            {
+              "text": "もらえるなら、もらおうかな",
+              "goto": "common_n1_lilia_a",
+              "effects": {
+                "aff_lilia": 2
+              }
+            },
+            {
+              "text": "気にかけてくれて、ありがとう",
+              "goto": "common_n1_lilia_b",
+              "effects": {
+                "aff_lilia": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "common_n1_lilia_a",
+      "title": "お隣さん・反応A",
+      "location": "シェアハウス・廊下",
+      "time": "夜",
+      "bgm": "隣室の陽気さ",
+      "bg": "bg_sharehouse_hall_night",
+      "commands": [
+        {
+          "type": "show",
+          "char": "lilia",
+          "expr": "smile",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "リリア",
+          "text": "当たり。新しいお隣さん、見込みあるね。"
+        },
+        {
+          "type": "text",
+          "speaker": "リリア",
+          "text": "はい、熱いうちに。"
+        },
+        {
+          "type": "jump",
+          "goto": "common_n1_lilia_x"
+        }
+      ]
+    },
+    {
+      "id": "common_n1_lilia_b",
+      "title": "お隣さん・反応B",
+      "location": "シェアハウス・廊下",
+      "time": "夜",
+      "bgm": "隣室の陽気さ",
+      "bg": "bg_sharehouse_hall_night",
+      "commands": [
+        {
+          "type": "show",
+          "char": "lilia",
+          "expr": "smile",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "リリア",
+          "text": "気にしてないよ、ついで。"
+        },
+        {
+          "type": "show",
+          "char": "lilia",
+          "expr": "shy",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "リリア",
+          "text": "……ついで、だよ？"
+        },
+        {
+          "type": "jump",
+          "goto": "common_n1_lilia_x"
+        }
+      ]
+    },
+    {
+      "id": "common_n1_lilia_x",
+      "title": "お隣さん・続き",
+      "location": "シェアハウス・廊下",
+      "time": "夜",
+      "bgm": "隣室の陽気さ",
+      "bg": "bg_sharehouse_hall_night",
+      "commands": [
+        {
+          "type": "show",
+          "char": "lilia",
+          "expr": "smile",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "リリア",
+          "text": "また困ったら、壁、軽く叩いて。薄いから、すぐ聞こえるよ。"
+        },
+        {
+          "type": "hide",
+          "char": "lilia"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "袋を受け取って、ドアが閉まる。廊下に、揚げ物の匂いだけが残った。壁は、彼女の言ったとおり薄くて、向こうで小さく鼻歌がする。"
+        },
+        {
+          "type": "jump",
+          "goto": "common_n1_after"
+        }
+      ]
+    },
+    {
+      "id": "common_n1_after",
+      "title": "眠れない夜",
+      "location": "シェアハウス・自室〜坂道",
+      "time": "深夜",
+      "bgm": "静かな夜",
+      "bg": "bg_sharehouse_room_night",
+      "commands": [
+        {
+          "type": "bg",
+          "id": "bg_sharehouse_room_night"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "夜食はうまかった。隣室の人の手つきまで想像できるほど、油の温度がちょうどよかった。それでも、眠れない。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "箱の隙間から、街の灯りが見える。坂の下のほうで、一軒だけ遅い店があるらしい。新しい住所の夜は、まだ自分のものと呼べなかった。"
+        },
+        {
+          "type": "bg",
+          "id": "bg_street_night_clear"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "鍵を持って、外に出た。新しい街の坂は、下りるときのほうが、足音が長い。夜風は乾いていて、どこか遠くで、電車の最後の音がした。僕は、坂の下の灯りへ歩いた。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "古い写真館を改装したカフェだった。看板の文字はかすれている。窓に、橙色の灯り。この時間に開いている店は、ここだけに見えた。"
+        },
+        {
+          "type": "jump",
+          "goto": "common_n1_lumia"
+        }
+      ]
+    },
+    {
+      "id": "common_n1_lumia",
+      "title": "写真館カフェ",
+      "location": "写真館カフェ・カウンター",
+      "time": "深夜",
+      "bgm": "低いアナログな静けさ",
+      "bg": "bg_photo_cafe_night",
+      "commands": [
+        {
+          "type": "bg",
+          "id": "bg_photo_cafe_night"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "カウンターに、黒いコートの女が一人座っていた。こちらを向かない。脚もとに、カメラの入ったチェーンバッグ。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "空いている席は、その隣が一番自然だった。"
+        },
+        {
+          "type": "show",
+          "char": "lumia",
+          "expr": "profile",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "腰を下ろすと、横顔だけがわずかに動く。暗めの茶色のショートボブ。細いネックレス。"
+        },
+        {
+          "type": "text",
+          "speaker": "ルミア",
+          "text": "……閉店、あと一杯ぶんはあるよ。"
+        },
+        {
+          "type": "text",
+          "speaker": "ルミア",
+          "text": "ルミア。ここの常連、というより、住み着いてるほう。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "壁に、古いプリントが並んでいる。人が写っていない写真が多い。閉まったシャッター、空、路地。湯気の立つカップのほかに、会話の手がかりは少なかった。"
+        },
+        {
+          "type": "choice",
+          "options": [
+            {
+              "text": "隣、悪くなかったかな",
+              "goto": "common_n1_lumia_a",
+              "effects": {
+                "aff_lumia": 2
+              }
+            },
+            {
+              "text": "遅くまでやってるんだね",
+              "goto": "common_n1_lumia_b",
+              "effects": {
+                "aff_lumia": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "common_n1_lumia_a",
+      "title": "写真館カフェ・反応A",
+      "location": "写真館カフェ・カウンター",
+      "time": "深夜",
+      "bgm": "低いアナログな静けさ",
+      "bg": "bg_photo_cafe_night",
+      "commands": [
+        {
+          "type": "show",
+          "char": "lumia",
+          "expr": "profile",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "ルミア",
+          "text": "気にしてない。黙って飲める客は、歓迎。"
+        },
+        {
+          "type": "jump",
+          "goto": "common_n1_lumia_x"
+        }
+      ]
+    },
+    {
+      "id": "common_n1_lumia_b",
+      "title": "写真館カフェ・反応B",
+      "location": "写真館カフェ・カウンター",
+      "time": "深夜",
+      "bgm": "低いアナログな静けさ",
+      "bg": "bg_photo_cafe_night",
+      "commands": [
+        {
+          "type": "show",
+          "char": "lumia",
+          "expr": "profile",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "ルミア",
+          "text": "夜のほうが、落ち着けるから。"
+        },
+        {
+          "type": "jump",
+          "goto": "common_n1_lumia_x"
+        }
+      ]
+    },
+    {
+      "id": "common_n1_lumia_x",
+      "title": "写真館カフェ・続き",
+      "location": "写真館カフェ・カウンター",
+      "time": "深夜",
+      "bgm": "低いアナログな静けさ",
+      "bg": "bg_photo_cafe_night",
+      "commands": [
+        {
+          "type": "show",
+          "char": "lumia",
+          "expr": "profile",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "ルミア",
+          "text": "今夜は、もう撮らないけど。"
+        },
+        {
+          "type": "show",
+          "char": "lumia",
+          "expr": "neutral",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "会計のとき、一瞬だけ、グレーがかった青い目がこちらを見る。"
+        },
+        {
+          "type": "text",
+          "speaker": "ルミア",
+          "text": "また来たら、名前くらいは聞くよ。"
+        },
+        {
+          "type": "hide",
+          "char": "lumia"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "店を出ると、夜はもう深かった。"
+        },
+        {
+          "type": "jump",
+          "goto": "common_n1_end"
+        }
+      ]
+    },
+    {
+      "id": "common_n1_end",
+      "title": "一日目の終わり",
+      "location": "シェアハウス・自室",
+      "time": "深夜の終わり",
+      "bgm": "静かな室内",
+      "bg": "bg_sharehouse_room_night",
+      "commands": [
+        {
+          "type": "bg",
+          "id": "bg_sharehouse_room_night"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "部屋に戻ると、ドアの下に小さなメモがあった。『夜食、まだある』。字は丸い。隣室は、もう静かだった。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "僕はメモを折って、枕元に置いた。初めての夜にしては、人の温度が多すぎる気がした。"
+        },
+        {
+          "type": "jump",
+          "goto": "common_n2_start"
+        }
+      ]
+    },
+    {
+      "id": "common_n2_start",
+      "title": "雨",
+      "location": "街路",
+      "time": "翌日・夕方",
+      "bgm": "降り出す雨",
+      "bg": "bg_street_rain_evening",
+      "commands": [
+        {
+          "type": "bg",
+          "id": "bg_street_rain_evening"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "翌日。夕方から、雨になった。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "傘は、まだ箱の底にいる。仕事帰り、雨足が急に強くなった。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "角に、小さな古本屋カフェの看板がある。ベルの絵が、にじんで見えた。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "僕は、逃げ込むように扉を押した。"
+        },
+        {
+          "type": "jump",
+          "goto": "common_n2_claire"
+        }
+      ]
+    },
+    {
+      "id": "common_n2_claire",
+      "title": "タオルと紅茶",
+      "location": "古本屋カフェ",
+      "time": "雨の夕方",
+      "bgm": "紙と雨の室内",
+      "bg": "bg_bookstore_cafe_rain",
+      "commands": [
+        {
+          "type": "bg",
+          "id": "bg_bookstore_cafe_rain"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "古い紙と、インクの匂い。雨の音が、窓でゆるくなる。"
+        },
+        {
+          "type": "cg",
+          "id": "cg_claire_1"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "クリーム色のニットの人が、カウンターから出て、タオルを差し出した。腰まであるピンクの髪が、室内灯で少し沈んで見える。"
+        },
+        {
+          "type": "text",
+          "speaker": "クレア",
+          "text": "タオル、使ってください。風邪ひいちゃいますよ。"
+        },
+        {
+          "type": "cg_hide"
+        },
+        {
+          "type": "show",
+          "char": "claire",
+          "expr": "smile",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "湯気の立つ紅茶も、一緒に置かれた。"
+        },
+        {
+          "type": "text",
+          "speaker": "クレア",
+          "text": "店番の、クレアです。この通り、急な雨が多いんですよ。"
+        },
+        {
+          "type": "choice",
+          "options": [
+            {
+              "text": "助かります。いただきます",
+              "goto": "common_n2_claire_a",
+              "effects": {
+                "aff_claire": 2
+              }
+            },
+            {
+              "text": "濡れたまま入って、すみません",
+              "goto": "common_n2_claire_b",
+              "effects": {
+                "aff_claire": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "common_n2_claire_a",
+      "title": "タオルと紅茶・反応A",
+      "location": "古本屋カフェ",
+      "time": "雨の夕方",
+      "bgm": "紙と雨の室内",
+      "bg": "bg_bookstore_cafe_rain",
+      "commands": [
+        {
+          "type": "show",
+          "char": "claire",
+          "expr": "smile",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "クレア",
+          "text": "ふふ、遠慮しないでくださいね。"
+        },
+        {
+          "type": "jump",
+          "goto": "common_n2_claire_x"
+        }
+      ]
+    },
+    {
+      "id": "common_n2_claire_b",
+      "title": "タオルと紅茶・反応B",
+      "location": "古本屋カフェ",
+      "time": "雨の夕方",
+      "bgm": "紙と雨の室内",
+      "bg": "bg_bookstore_cafe_rain",
+      "commands": [
+        {
+          "type": "show",
+          "char": "claire",
+          "expr": "smile",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "クレア",
+          "text": "大丈夫です。そういう人のためのタオルなので。"
+        },
+        {
+          "type": "jump",
+          "goto": "common_n2_claire_x"
+        }
+      ]
+    },
+    {
+      "id": "common_n2_claire_x",
+      "title": "タオルと紅茶・続き",
+      "location": "古本屋カフェ",
+      "time": "雨の夕方",
+      "bgm": "紙と雨の室内",
+      "bg": "bg_bookstore_cafe_rain",
+      "commands": [
+        {
+          "type": "show",
+          "char": "claire",
+          "expr": "smile",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "窓際で、雨が弱くなるのを待った。本の背表紙が、ところどころ色あせている。クレアは、店番というより、本の間に座っている人、という感じだった。"
+        },
+        {
+          "type": "text",
+          "speaker": "クレア",
+          "text": "また、乾いた顔で来てくださいね。"
+        },
+        {
+          "type": "hide",
+          "char": "claire"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "ベルが鳴って、外へ出る。路面はまだ光っていたが、雨粒はもう、ほとんど落ちていなかった。"
+        },
+        {
+          "type": "jump",
+          "goto": "common_n2_street"
+        }
+      ]
+    },
+    {
+      "id": "common_n2_street",
+      "title": "雨のあと",
+      "location": "濡れた街路",
+      "time": "夜のはじまり",
+      "bgm": "雨上がりの静けさ",
+      "bg": "bg_street_after_rain",
+      "commands": [
+        {
+          "type": "bg",
+          "id": "bg_street_after_rain"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "帰り際、角に花屋を兼ねたカフェがあった。閉店間際の札。ガラスの向こうに、白い花。雨上がりの路面だけが、店の灯りを長く引き伸ばしている。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "越してきた部屋には、花が一輪もない。それだけの理由で、扉に手をかけた。"
+        },
+        {
+          "type": "jump",
+          "goto": "common_n2_cecilia"
+        }
+      ]
+    },
+    {
+      "id": "common_n2_cecilia",
+      "title": "最後の白ユリ",
+      "location": "花屋カフェ",
+      "time": "閉店間際の夜",
+      "bgm": "花の静けさ",
+      "bg": "bg_flower_cafe_night",
+      "commands": [
+        {
+          "type": "bg",
+          "id": "bg_flower_cafe_night"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "客は、もうほとんどいない。白い服の女性が、白ユリのバケツへ手を伸ばしていた。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "同じ、最後の一本に、僕も手を伸ばしていた。"
+        },
+        {
+          "type": "show",
+          "char": "cecilia",
+          "expr": "neutral",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "指が触れそうになる。彼女は、すっと手を引いた。争い、というほどでもない。静かな譲り方だった。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "右目は、前髪で隠れたまま。見えている左目だけが、黄緑で、ユリと僕を順に見る。金のティアラに、白い花の髪飾り。"
+        },
+        {
+          "type": "text",
+          "speaker": "セシリア",
+          "text": "そのユリ、あなたが選んだなら……それでいいです。"
+        },
+        {
+          "type": "choice",
+          "options": [
+            {
+              "text": "待って。先に伸ばしてたのは、あなたです",
+              "goto": "common_n2_cecilia_a",
+              "effects": {
+                "aff_cecilia": 2,
+                "cecilia_lily": "gave"
+              }
+            },
+            {
+              "text": "……いいんですか",
+              "goto": "common_n2_cecilia_b",
+              "effects": {
+                "aff_cecilia": 1,
+                "cecilia_lily": "took"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "common_n2_cecilia_a",
+      "title": "最後の白ユリ・反応A",
+      "location": "花屋カフェ",
+      "time": "閉店間際の夜",
+      "bgm": "花の静けさ",
+      "bg": "bg_flower_cafe_night",
+      "commands": [
+        {
+          "type": "show",
+          "char": "cecilia",
+          "expr": "neutral",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "僕は、ユリを彼女のほうへ戻した。"
+        },
+        {
+          "type": "text",
+          "speaker": "セシリア",
+          "text": "……では、受け取ります。"
+        },
+        {
+          "type": "show",
+          "char": "cecilia",
+          "expr": "smile",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "セシリア",
+          "text": "あなたは、今、選び直しましたね。"
+        },
+        {
+          "type": "jump",
+          "goto": "common_n2_cecilia_x"
+        }
+      ]
+    },
+    {
+      "id": "common_n2_cecilia_b",
+      "title": "最後の白ユリ・反応B",
+      "location": "花屋カフェ",
+      "time": "閉店間際の夜",
+      "bgm": "花の静けさ",
+      "bg": "bg_flower_cafe_night",
+      "commands": [
+        {
+          "type": "show",
+          "char": "cecilia",
+          "expr": "neutral",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "僕は、ユリを受け取ってしまった。"
+        },
+        {
+          "type": "text",
+          "speaker": "セシリア",
+          "text": "ええ。選んだのなら、連れて帰ってあげてください。"
+        },
+        {
+          "type": "jump",
+          "goto": "common_n2_cecilia_x"
+        }
+      ]
+    },
+    {
+      "id": "common_n2_cecilia_x",
+      "title": "最後の白ユリ・続き",
+      "location": "花屋カフェ",
+      "time": "閉店間際の夜",
+      "bgm": "花の静けさ",
+      "bg": "bg_flower_cafe_night",
+      "commands": [
+        {
+          "type": "show",
+          "char": "cecilia",
+          "expr": "neutral",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "会計のとき、彼女が、静かに言った。"
+        },
+        {
+          "type": "text",
+          "speaker": "セシリア",
+          "text": "迷うとき、唇を一度結ぶんですね。"
+        },
+        {
+          "type": "text",
+          "speaker": "セシリア",
+          "text": "……見ているだけです。失礼しました。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "セシリア、と、名前だけを置いて、彼女は店を出ていく。前髪は、最後まで下がったままだった。"
+        },
+        {
+          "type": "hide",
+          "char": "cecilia"
+        },
+        {
+          "type": "jump",
+          "goto": "common_n2_end"
+        }
+      ]
+    },
+    {
+      "id": "common_n2_end",
+      "title": "二日目の終わり",
+      "location": "シェアハウス・廊下",
+      "time": "夜",
+      "bgm": "落ち着いた室内",
+      "bg": "bg_sharehouse_hall_night",
+      "commands": [
+        {
+          "type": "bg",
+          "id": "bg_sharehouse_hall_night"
+        },
+        {
+          "type": "show",
+          "char": "lilia",
+          "expr": "neutral",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "リリア",
+          "text": "今日、雨だったね。濡れなかった？"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "ドアの向こうから、顔だけ出す。確認したら、もう満足そうだった。"
+        },
+        {
+          "type": "text",
+          "speaker": "{name}",
+          "text": "大丈夫。途中で、店に入れてもらった。"
+        },
+        {
+          "type": "show",
+          "char": "lilia",
+          "expr": "smile",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "リリア",
+          "text": "よかった。じゃあ、おやすみ、{name}。"
+        },
+        {
+          "type": "hide",
+          "char": "lilia"
+        },
+        {
+          "type": "jump",
+          "goto": "common_n3_start"
+        }
+      ]
+    },
+    {
+      "id": "common_n3_start",
+      "title": "風の夜",
+      "location": "シェアハウス〜屋上バーへの道",
+      "time": "数日後の夜",
+      "bgm": "風の音",
+      "bg": "bg_street_night_wind",
+      "commands": [
+        {
+          "type": "bg",
+          "id": "bg_sharehouse_hall_night"
+        },
+        {
+          "type": "show",
+          "char": "lilia",
+          "expr": "smile",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "リリア",
+          "text": "今夜、風強いよ。坂の上の屋上バー、あいてると思う。"
+        },
+        {
+          "type": "text",
+          "speaker": "リリア",
+          "text": "気持ちいいけど、私、明日早いからパス。{name}は、行ってもいいのに。"
+        },
+        {
+          "type": "hide",
+          "char": "lilia"
+        },
+        {
+          "type": "bg",
+          "id": "bg_street_night_wind"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "数日ぶりに、夜の風が乾いていた。僕は、教えられた坂を上がった。髪とコートの裾が、同じ方向へ流れる。"
+        },
+        {
+          "type": "jump",
+          "goto": "common_n3_selene"
+        }
+      ]
+    },
+    {
+      "id": "common_n3_selene",
+      "title": "隣の席",
+      "location": "屋上バー",
+      "time": "風の強い夜",
+      "bgm": "大人びた夜風",
+      "bg": "bg_rooftop_bar_wind",
+      "commands": [
+        {
+          "type": "bg",
+          "id": "bg_rooftop_bar_wind"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "メニューが、風に煽られてぱたぱたと鳴る。手すり側の隅に、黒いレースの女が一人。ほかの席は空いているのに、風よけになるその場所だけが、誰かの定位置に見えた。"
+        },
+        {
+          "type": "show",
+          "char": "selene",
+          "expr": "neutral",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "暗めの髪を、低めのゆるいお団子にしている。顔まわりに、後れ毛。黒のチョーカーと、金のクロスピアス。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "風よけになるその席の隣だけが、空いて見えた。"
+        },
+        {
+          "type": "text",
+          "speaker": "セレーヌ",
+          "text": "隣、空いてるよ。座るなら静かにね。"
+        },
+        {
+          "type": "choice",
+          "options": [
+            {
+              "text": "うなずいて、静かに座る",
+              "goto": "common_n3_selene_a",
+              "effects": {
+                "aff_selene": 2
+              }
+            },
+            {
+              "text": "風、強いですね、と口に出してしまう",
+              "goto": "common_n3_selene_b",
+              "effects": {
+                "aff_selene": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "common_n3_selene_a",
+      "title": "隣の席・反応A",
+      "location": "屋上バー",
+      "time": "風の強い夜",
+      "bgm": "大人びた夜風",
+      "bg": "bg_rooftop_bar_wind",
+      "commands": [
+        {
+          "type": "show",
+          "char": "selene",
+          "expr": "smile",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "セレーヌ",
+          "text": "気が利くのね。"
+        },
+        {
+          "type": "jump",
+          "goto": "common_n3_selene_x"
+        }
+      ]
+    },
+    {
+      "id": "common_n3_selene_b",
+      "title": "隣の席・反応B",
+      "location": "屋上バー",
+      "time": "風の強い夜",
+      "bgm": "大人びた夜風",
+      "bg": "bg_rooftop_bar_wind",
+      "commands": [
+        {
+          "type": "show",
+          "char": "selene",
+          "expr": "neutral",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "セレーヌ",
+          "text": "……まあ、今夜は仕方ないわね。"
+        },
+        {
+          "type": "jump",
+          "goto": "common_n3_selene_x"
+        }
+      ]
+    },
+    {
+      "id": "common_n3_selene_x",
+      "title": "隣の席・続き",
+      "location": "屋上バー",
+      "time": "風の強い夜",
+      "bgm": "大人びた夜風",
+      "bg": "bg_rooftop_bar_wind",
+      "commands": [
+        {
+          "type": "show",
+          "char": "selene",
+          "expr": "neutral",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "セレーヌ",
+          "text": "セレーヌ。この席の、常連。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "長くは話さない。グラスの縁で、風の音を聞いてるみたいだった。隣に座った客を、すぐに会話へ引っ張りはしない人だった。"
+        },
+        {
+          "type": "text",
+          "speaker": "セレーヌ",
+          "text": "また夜風が強いとき、ここにいると思う。"
+        },
+        {
+          "type": "hide",
+          "char": "selene"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "会計を済ませて、坂を下りる。風は、まだ強かった。"
+        },
+        {
+          "type": "jump",
+          "goto": "common_n3_street"
+        }
+      ]
+    },
+    {
+      "id": "common_n3_street",
+      "title": "映る窓",
+      "location": "商店街",
+      "time": "風の夜・帰り",
+      "bgm": "ガラスの反響",
+      "bg": "bg_shopstreet_night",
+      "commands": [
+        {
+          "type": "bg",
+          "id": "bg_shopstreet_night"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "商店街の大きな窓に、自分の姿が映った。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "その反射が、先に、小さく手を振った。"
+        },
+        {
+          "type": "jump",
+          "goto": "common_n3_luche"
+        }
+      ]
+    },
+    {
+      "id": "common_n3_luche",
+      "title": "窓の中のいたずら",
+      "location": "窓際のカフェ",
+      "time": "風の夜・帰り",
+      "bgm": "いたずらな神秘",
+      "bg": "bg_cafe_window_night",
+      "commands": [
+        {
+          "type": "bg",
+          "id": "bg_cafe_window_night"
+        },
+        {
+          "type": "cg",
+          "id": "cg_luche_1"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "ガラスの中で、こちらの姿だけが先に手を振っている。自分が、自分より早く動いた。"
+        },
+        {
+          "type": "text",
+          "speaker": "{name}",
+          "text": "……今、窓の中の僕が、勝手に手を振った？"
+        },
+        {
+          "type": "cg_hide"
+        },
+        {
+          "type": "show",
+          "char": "luche",
+          "expr": "smile",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "ルシェ",
+          "text": "ふふ、びっくりした？"
+        },
+        {
+          "type": "show",
+          "char": "luche",
+          "expr": "neutral",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "ルシェ",
+          "text": "ごめんね。きみの反射、ちょっとだけ借りちゃった。"
+        },
+        {
+          "type": "show",
+          "char": "luche",
+          "expr": "smile",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "長いストレートの髪は、アッシュグレージュで、銀の光をすこし含む。右手首に、小さな手鏡。右耳だけに、イヤーカフ。"
+        },
+        {
+          "type": "text",
+          "speaker": "ルシェ",
+          "text": "わたしはルシェ。……ねえ、今日のわたし、かわいいでしょ？"
+        },
+        {
+          "type": "choice",
+          "options": [
+            {
+              "text": "うん、かわいい",
+              "goto": "common_n3_luche_a",
+              "effects": {
+                "aff_luche": 1
+              }
+            },
+            {
+              "text": "今の、どうやったの？",
+              "goto": "common_n3_luche_b",
+              "effects": {
+                "aff_luche": 2
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "common_n3_luche_a",
+      "title": "窓の中のいたずら・反応A",
+      "location": "窓際のカフェ",
+      "time": "風の夜・帰り",
+      "bgm": "いたずらな神秘",
+      "bg": "bg_cafe_window_night",
+      "commands": [
+        {
+          "type": "show",
+          "char": "luche",
+          "expr": "shy",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "ルシェ",
+          "text": "……え、そこは普通、ちょっと迷うとこでしょ。"
+        },
+        {
+          "type": "jump",
+          "goto": "common_n3_luche_x"
+        }
+      ]
+    },
+    {
+      "id": "common_n3_luche_b",
+      "title": "窓の中のいたずら・反応B",
+      "location": "窓際のカフェ",
+      "time": "風の夜・帰り",
+      "bgm": "いたずらな神秘",
+      "bg": "bg_cafe_window_night",
+      "commands": [
+        {
+          "type": "show",
+          "char": "luche",
+          "expr": "smile",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "ルシェ",
+          "text": "気になる？　じゃあ、また会ってくれたら教えてあげる。"
+        },
+        {
+          "type": "jump",
+          "goto": "common_n3_luche_x"
+        }
+      ]
+    },
+    {
+      "id": "common_n3_luche_x",
+      "title": "窓の中のいたずら・続き",
+      "location": "窓際のカフェ",
+      "time": "風の夜・帰り",
+      "bgm": "いたずらな神秘",
+      "bg": "bg_cafe_window_night",
+      "commands": [
+        {
+          "type": "show",
+          "char": "luche",
+          "expr": "smile",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "ルシェ",
+          "text": "ふふ、続きはまた夜にね。"
+        },
+        {
+          "type": "hide",
+          "char": "luche"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "彼女が瞬きしたとき、窓の反射は、もう普通の僕だけを映していた。"
+        },
+        {
+          "type": "jump",
+          "goto": "common_n3_end"
+        }
+      ]
+    },
+    {
+      "id": "common_n3_end",
+      "title": "三人目の夜の終わり",
+      "location": "シェアハウス・自室",
+      "time": "深夜",
+      "bgm": "考えごと",
+      "bg": "bg_sharehouse_room_night",
+      "commands": [
+        {
+          "type": "bg",
+          "id": "bg_sharehouse_room_night"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "この街に来て、まだ日は浅い。それなのに、夜のほうで、もう六人の顔を覚えてしまっていた。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "隣のリリア。写真館のルミア。雨のクレア。ユリのセシリア。屋上のセレーヌ。窓のルシェ。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "どれも、少しだけ距離の近い他人だった。名前と、声の温度と、戻ってこられる場所。それ以上を求めるかは、まだ自分でも分かっていなかった。"
+        },
+        {
+          "type": "jump",
+          "goto": "common_free"
+        }
+      ]
+    },
+    {
+      "id": "common_free",
+      "title": "空いた夜",
+      "location": "シェアハウス・自室",
+      "time": "その後のある夜",
+      "bgm": "分岐の静けさ",
+      "bg": "bg_sharehouse_room_night",
+      "commands": [
+        {
+          "type": "bg",
+          "id": "bg_sharehouse_room_night"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "荷解きも、だいぶ終わった。今夜は、どこへ行くでもよかった。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "会いに行くなら、一人の夜に足を踏み入れることになる。行かない、という選び方もある。どちらも、選べてしまうのが、少しだけ重かった。"
+        },
+        {
+          "type": "choice",
+          "options": [
+            {
+              "text": "写真館カフェへ行く",
+              "goto": "visit_lumia",
+              "effects": {
+                "aff_lumia": 2
+              }
+            },
+            {
+              "text": "屋上バーへ行く",
+              "goto": "visit_selene",
+              "effects": {
+                "aff_selene": 2
+              }
+            },
+            {
+              "text": "部屋で過ごす",
+              "goto": "visit_lilia",
+              "effects": {
+                "aff_lilia": 2
+              }
+            },
+            {
+              "text": "花屋カフェへ行く",
+              "goto": "visit_cecilia",
+              "effects": {
+                "aff_cecilia": 2
+              }
+            },
+            {
+              "text": "窓の多い通りへ行く",
+              "goto": "visit_luche",
+              "effects": {
+                "aff_luche": 2
+              }
+            },
+            {
+              "text": "古本屋カフェへ行く",
+              "goto": "visit_claire",
+              "effects": {
+                "aff_claire": 2
+              }
+            },
+            {
+              "text": "今夜は、誰のところにも寄らない",
+              "goto": "visit_none"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "visit_lumia",
+      "title": "訪ねる・ルミア",
+      "location": "写真館カフェ",
+      "time": "夜",
+      "bgm": "低いアナログな静けさ",
+      "bg": "bg_photo_cafe_night",
+      "commands": [
+        {
+          "type": "bg",
+          "id": "bg_photo_cafe_night"
+        },
+        {
+          "type": "show",
+          "char": "lumia",
+          "expr": "profile",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "カウンターの隣が、空いていた。彼女は、振り向かない。"
+        },
+        {
+          "type": "text",
+          "speaker": "ルミア",
+          "text": "……また来たんだ。"
+        },
+        {
+          "type": "text",
+          "speaker": "ルミア",
+          "text": "名前、まだ聞いてなかったね。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "僕は、{name}だと答えた。彼女は、短い音で繰り返した。"
+        },
+        {
+          "type": "text",
+          "speaker": "ルミア",
+          "text": "今夜は、少し話してもいい。"
+        },
+        {
+          "type": "text",
+          "speaker": "ルミア",
+          "text": "壁の写真、気になってたなら、その話。"
+        },
+        {
+          "type": "hide",
+          "char": "lumia"
+        },
+        {
+          "type": "jump",
+          "goto": "route_check"
+        }
+      ]
+    },
+    {
+      "id": "visit_selene",
+      "title": "訪ねる・セレーヌ",
+      "location": "屋上バー",
+      "time": "夜",
+      "bgm": "大人びた夜風",
+      "bg": "bg_rooftop_bar_calm",
+      "commands": [
+        {
+          "type": "bg",
+          "id": "bg_rooftop_bar_calm"
+        },
+        {
+          "type": "show",
+          "char": "selene",
+          "expr": "neutral",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "風は、あの夜ほど強くない。彼女は同じ席で、隣を顎で示した。"
+        },
+        {
+          "type": "text",
+          "speaker": "セレーヌ",
+          "text": "来たのね。座るなら、いつものように。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "風は弱い。グラスの側面に、夜景が細く伸びていた。"
+        },
+        {
+          "type": "hide",
+          "char": "selene"
+        },
+        {
+          "type": "jump",
+          "goto": "route_check"
+        }
+      ]
+    },
+    {
+      "id": "visit_lilia",
+      "title": "訪ねる・リリア",
+      "location": "シェアハウス・廊下",
+      "time": "夜",
+      "bgm": "隣室の陽気さ",
+      "bg": "bg_sharehouse_hall_night",
+      "commands": [
+        {
+          "type": "bg",
+          "id": "bg_sharehouse_hall_night"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "壁を、小さく二回叩いた。すぐ、ドアが開く。"
+        },
+        {
+          "type": "show",
+          "char": "lilia",
+          "expr": "smile",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "リリア",
+          "text": "呼ばれたと思った。ちょうど、お茶の時間。"
+        },
+        {
+          "type": "text",
+          "speaker": "リリア",
+          "text": "{name}、今夜は出る？　ちょっとお腹すいちゃった。"
+        },
+        {
+          "type": "text",
+          "speaker": "リリア",
+          "text": "一人で食べるより、会話があるほうが消化いいし。"
+        },
+        {
+          "type": "hide",
+          "char": "lilia"
+        },
+        {
+          "type": "jump",
+          "goto": "route_check"
+        }
+      ]
+    },
+    {
+      "id": "visit_cecilia",
+      "title": "訪ねる・セシリア",
+      "location": "花屋カフェ",
+      "time": "夜",
+      "bgm": "花の静けさ",
+      "bg": "bg_flower_cafe_night",
+      "commands": [
+        {
+          "type": "bg",
+          "id": "bg_flower_cafe_night"
+        },
+        {
+          "type": "show",
+          "char": "cecilia",
+          "expr": "neutral",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "彼女は一人、窓の外の夜を見ていた。こちらに気づいて、軽く会釈する。前髪は、変わらず右目を隠している。"
+        },
+        {
+          "type": "text",
+          "speaker": "セシリア",
+          "text": "……また、会いましたね。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "彼女の前には、今夜は花がない。手が、カップの取っ手の上で止まっていた。"
+        },
+        {
+          "type": "hide",
+          "char": "cecilia"
+        },
+        {
+          "type": "jump",
+          "goto": "route_check"
+        }
+      ]
+    },
+    {
+      "id": "visit_luche",
+      "title": "訪ねる・ルシェ",
+      "location": "窓際のカフェ",
+      "time": "夜",
+      "bgm": "いたずらな神秘",
+      "bg": "bg_cafe_window_night",
+      "commands": [
+        {
+          "type": "bg",
+          "id": "bg_cafe_window_night"
+        },
+        {
+          "type": "show",
+          "char": "luche_reflect",
+          "expr": "smile",
+          "position": "left"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "あの窓。反射のほうが、先に笑っていた。"
+        },
+        {
+          "type": "hide",
+          "char": "luche_reflect"
+        },
+        {
+          "type": "show",
+          "char": "luche",
+          "expr": "smile",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "ルシェ",
+          "text": "また来た。約束、覚えててくれたんだ。"
+        },
+        {
+          "type": "text",
+          "speaker": "ルシェ",
+          "text": "今夜は、窓の外、連れてってあげる。"
+        },
+        {
+          "type": "hide",
+          "char": "luche"
+        },
+        {
+          "type": "jump",
+          "goto": "route_check"
+        }
+      ]
+    },
+    {
+      "id": "visit_claire",
+      "title": "訪ねる・クレア",
+      "location": "古本屋カフェ",
+      "time": "夜",
+      "bgm": "紙の温かな室内",
+      "bg": "bg_bookstore_cafe_clear",
+      "commands": [
+        {
+          "type": "bg",
+          "id": "bg_bookstore_cafe_clear"
+        },
+        {
+          "type": "show",
+          "char": "claire",
+          "expr": "smile",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "ベルが鳴る。クレアは顔を上げて、紅茶のポットに手を伸ばした。今夜は、雨は降っていない。"
+        },
+        {
+          "type": "text",
+          "speaker": "クレア",
+          "text": "あ……いらっしゃいませ。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "雨の日のタオルは、棚の端に畳んである。今夜は必要ない。それでも、席は窓際が空いていた。"
+        },
+        {
+          "type": "hide",
+          "char": "claire"
+        },
+        {
+          "type": "jump",
+          "goto": "route_check"
+        }
+      ]
+    },
+    {
+      "id": "visit_none",
+      "title": "どこにも寄らない",
+      "location": "坂の途中",
+      "time": "夜",
+      "bgm": "離れの静けさ",
+      "bg": "bg_street_night_clear",
+      "commands": [
+        {
+          "type": "bg",
+          "id": "bg_street_night_clear"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "どこにも寄らず、坂の上まで歩いて、戻った。店の灯りは、どれも既に知っている色だった。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "六つの顔が、どれも同じ距離にあった。近くて、どれも、選べていない。選ばない夜も、夜ではあった。"
+        },
+        {
+          "type": "jump",
+          "goto": "route_check"
+        }
+      ]
+    },
+    {
+      "id": "route_check",
+      "title": "分岐",
+      "location": "—",
+      "time": "—",
+      "bgm": "—",
+      "bg": "bg_black",
+      "commands": [
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "その夜から、街の歩き方が、少しだけ変わっていく。"
+        },
+        {
+          "type": "route_check",
+          "min": 3,
+          "tiebreak": [
+            "lilia",
+            "lumia",
+            "claire",
+            "cecilia",
+            "selene",
+            "luche"
+          ],
+          "routes": {
+            "lilia": "lilia_1",
+            "lumia": "lumia_1",
+            "claire": "claire_1",
+            "cecilia": "cecilia_1",
+            "selene": "selene_1",
+            "luche": "luche_1"
+          },
+          "fallback": "normal_1"
+        }
+      ]
+    },
+    {
+      "id": "lumia_1",
+      "title": "撮れなかった写真",
+      "location": "写真館カフェ・カウンター",
+      "time": "訪問した夜",
+      "bgm": "低いアナログな静けさ",
+      "bg": "bg_photo_cafe_night",
+      "commands": [
+        {
+          "type": "bg",
+          "id": "bg_photo_cafe_night"
+        },
+        {
+          "type": "show",
+          "char": "lumia",
+          "expr": "profile",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "訪ねた夜の、続き。カップの縁を、彼女は見ている。壁のプリントは、どれも人が写っていない。時計の秒だけが、カウンターの下で小さい。"
+        },
+        {
+          "type": "hide",
+          "char": "lumia"
+        },
+        {
+          "type": "cg",
+          "id": "cg_lumia_1"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "ルミアは、最後まで振り向かない。黒いコートの襟と、ショートボブの毛先だけが、ランプの光で輪郭を持つ。"
+        },
+        {
+          "type": "text",
+          "speaker": "ルミア",
+          "text": "この店、元は写真館だった。暗室の匂い、まだ残ってるでしょ。"
+        },
+        {
+          "type": "text",
+          "speaker": "ルミア",
+          "text": "撮れなかった写真の話、してもいい？"
+        },
+        {
+          "type": "cg_hide"
+        },
+        {
+          "type": "show",
+          "char": "lumia",
+          "expr": "profile",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "ルミア",
+          "text": "駅のホームで、撮るつもりだった人がいた。カメラを下げた。次があると思った。"
+        },
+        {
+          "type": "text",
+          "speaker": "ルミア",
+          "text": "次は、来なかった。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "泣いてはいない。露出の話をするみたいに、短い。カップの湯気が、横顔を少し曇らせる。"
+        },
+        {
+          "type": "text",
+          "speaker": "ルミア",
+          "text": "残さなかったわけじゃない。残すタイミングを、逃した。"
+        },
+        {
+          "type": "text",
+          "speaker": "ルミア",
+          "text": "それから、人が写ってない写真ばかりになった。逃げ、って言われても、否定しきれない。"
+        },
+        {
+          "type": "choice",
+          "options": [
+            {
+              "text": "今でも、その一枚は気になる？",
+              "goto": "lumia_1a"
+            },
+            {
+              "text": "今夜、街を撮らないか",
+              "goto": "lumia_1b"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lumia_1a",
+      "title": "撮れなかった写真・反応A",
+      "location": "写真館カフェ・カウンター",
+      "time": "訪問した夜",
+      "bgm": "低いアナログな静けさ",
+      "bg": "bg_photo_cafe_night",
+      "commands": [
+        {
+          "type": "show",
+          "char": "lumia",
+          "expr": "sad",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "ルミア",
+          "text": "……気になる。だから、人を撮るのが下手になった。"
+        },
+        {
+          "type": "jump",
+          "goto": "lumia_1x"
+        }
+      ]
+    },
+    {
+      "id": "lumia_1b",
+      "title": "撮れなかった写真・反応B",
+      "location": "写真館カフェ・カウンター",
+      "time": "訪問した夜",
+      "bgm": "低いアナログな静けさ",
+      "bg": "bg_photo_cafe_night",
+      "commands": [
+        {
+          "type": "show",
+          "char": "lumia",
+          "expr": "smile",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "ルミア",
+          "text": "変わった誘い方。"
+        },
+        {
+          "type": "text",
+          "speaker": "ルミア",
+          "text": "いいよ。今夜は、霧が出てる。"
+        },
+        {
+          "type": "jump",
+          "goto": "lumia_1x"
+        }
+      ]
+    },
+    {
+      "id": "lumia_1x",
+      "title": "撮れなかった写真・続き",
+      "location": "写真館カフェ・カウンター",
+      "time": "訪問した夜",
+      "bgm": "低いアナログな静けさ",
+      "bg": "bg_photo_cafe_night",
+      "commands": [
+        {
+          "type": "show",
+          "char": "lumia",
+          "expr": "neutral",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "ルミア",
+          "text": "スペア、ある。きみ、持って。縦位置でいいはず。"
+        },
+        {
+          "type": "hide",
+          "char": "lumia"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "彼女は会計を済ませると、先に夜へ出ていった。"
+        },
+        {
+          "type": "jump",
+          "goto": "lumia_2"
+        }
+      ]
+    },
+    {
+      "id": "lumia_2",
+      "title": "夜霧の歩道橋",
+      "location": "川沿いの歩道橋",
+      "time": "深夜・霧",
+      "bgm": "霧の距離感",
+      "bg": "bg_footbridge_fog",
+      "commands": [
+        {
+          "type": "bg",
+          "id": "bg_street_night_photo"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "閉めかけの商店、橋桁、マンホールの湯気。彼女は自分では、ほとんどシャッターを切らない。歩幅だけが、撮影のリズムになっている。"
+        },
+        {
+          "type": "bg",
+          "id": "bg_footbridge_fog"
+        },
+        {
+          "type": "show",
+          "char": "lumia",
+          "expr": "neutral",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "川の上で、霧が深い。雨ではない。街灯が、白い塊になって浮かんでいる。"
+        },
+        {
+          "type": "text",
+          "speaker": "ルミア",
+          "text": "きみ、ピントの合わせ方が下手だね。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "手が、僕のカメラに近づいて、触れずに止まる。指先で、示すだけ。硝子の縁に、霧が薄い膜を作っていた。"
+        },
+        {
+          "type": "hide",
+          "char": "lumia"
+        },
+        {
+          "type": "cg",
+          "id": "cg_lumia_2"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "ルミアは歩道橋の向こうを向いて、カメラを構えている。黒いコートの背中。チェーンバッグ。霧が、輪郭を溶かしきれない位置で止まっている。"
+        },
+        {
+          "type": "cg_hide"
+        },
+        {
+          "type": "show",
+          "char": "lumia",
+          "expr": "neutral",
+          "position": "center"
+        },
+        {
+          "type": "choice",
+          "options": [
+            {
+              "text": "ルミアを撮ってもいい？",
+              "goto": "lumia_2a"
+            },
+            {
+              "text": "この霧、残したい",
+              "goto": "lumia_2b"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lumia_2a",
+      "title": "夜霧の歩道橋・反応A",
+      "location": "川沿いの歩道橋",
+      "time": "深夜・霧",
+      "bgm": "霧の距離感",
+      "bg": "bg_footbridge_fog",
+      "commands": [
+        {
+          "type": "show",
+          "char": "lumia",
+          "expr": "shy",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "ルミア",
+          "text": "……今は、やめときな。ピント、まだ甘いし。"
+        },
+        {
+          "type": "show",
+          "char": "lumia",
+          "expr": "neutral",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "ルミア",
+          "text": "かわりに、あそこの橋桁を。縦で。"
+        },
+        {
+          "type": "jump",
+          "goto": "lumia_2x"
+        }
+      ]
+    },
+    {
+      "id": "lumia_2b",
+      "title": "夜霧の歩道橋・反応B",
+      "location": "川沿いの歩道橋",
+      "time": "深夜・霧",
+      "bgm": "霧の距離感",
+      "bg": "bg_footbridge_fog",
+      "commands": [
+        {
+          "type": "show",
+          "char": "lumia",
+          "expr": "neutral",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "ルミア",
+          "text": "なら、露出を落とせ。白飛びする。"
+        },
+        {
+          "type": "jump",
+          "goto": "lumia_2x"
+        }
+      ]
+    },
+    {
+      "id": "lumia_2x",
+      "title": "夜霧の歩道橋・続き",
+      "location": "川沿いの歩道橋",
+      "time": "深夜・霧",
+      "bgm": "霧の距離感",
+      "bg": "bg_footbridge_fog",
+      "commands": [
+        {
+          "type": "show",
+          "char": "lumia",
+          "expr": "smile",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "ルミア",
+          "text": "上手くなくてもいい。今夜は、残す練習。"
+        },
+        {
+          "type": "hide",
+          "char": "lumia"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "シャッターが、霧の中で小さく鳴った。"
+        },
+        {
+          "type": "jump",
+          "goto": "lumia_3"
+        }
+      ]
+    },
+    {
+      "id": "lumia_3",
+      "title": "撮るのをやめた理由",
+      "location": "閉店後の商店街",
+      "time": "深夜の終わり",
+      "bgm": "低い告白前の静けさ",
+      "bg": "bg_street_night_closed",
+      "commands": [
+        {
+          "type": "bg",
+          "id": "bg_street_night_closed"
+        },
+        {
+          "type": "show",
+          "char": "lumia",
+          "expr": "neutral",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "商店街の明かりは、もう半分以上消えている。彼女はカメラのストラップを、指に巻いていた。"
+        },
+        {
+          "type": "text",
+          "speaker": "ルミア",
+          "text": "人がいなくなる前提で撮ると、残ったほうが見られない。"
+        },
+        {
+          "type": "text",
+          "speaker": "ルミア",
+          "text": "だから、撮るのをやめた。やめた、というより、向けられなくなった。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "シャッターの音が、いまは遠くの車だけだった。彼女はストラップを巻く指を、一度止めている。"
+        },
+        {
+          "type": "text",
+          "speaker": "ルミア",
+          "text": "撮らなくていい夜もあるよ。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "目は、濡れていない。長い沈黙のあとに、それだけだった。責めるのでも、慰めを求めるのでもなく、事実を置いただけに聞こえた。"
+        },
+        {
+          "type": "choice",
+          "options": [
+            {
+              "text": "僕は、残されてもいい",
+              "goto": "lumia_3a"
+            },
+            {
+              "text": "無理に撮らなくていい。隣にいるだけでも",
+              "goto": "lumia_3b"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lumia_3a",
+      "title": "撮るのをやめた理由・反応A",
+      "location": "閉店後の商店街",
+      "time": "深夜の終わり",
+      "bgm": "低い告白前の静けさ",
+      "bg": "bg_street_night_closed",
+      "commands": [
+        {
+          "type": "show",
+          "char": "lumia",
+          "expr": "surprised",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "ルミア",
+          "text": "……安請け合いしないで。"
+        },
+        {
+          "type": "show",
+          "char": "lumia",
+          "expr": "neutral",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "ルミア",
+          "text": "でも、今の、記録はした。"
+        },
+        {
+          "type": "jump",
+          "goto": "lumia_3x"
+        }
+      ]
+    },
+    {
+      "id": "lumia_3b",
+      "title": "撮るのをやめた理由・反応B",
+      "location": "閉店後の商店街",
+      "time": "深夜の終わり",
+      "bgm": "低い告白前の静けさ",
+      "bg": "bg_street_night_closed",
+      "commands": [
+        {
+          "type": "show",
+          "char": "lumia",
+          "expr": "shy",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "ルミア",
+          "text": "……それ、反則。"
+        },
+        {
+          "type": "jump",
+          "goto": "lumia_3x"
+        }
+      ]
+    },
+    {
+      "id": "lumia_3x",
+      "title": "撮るのをやめた理由・続き",
+      "location": "閉店後の商店街",
+      "time": "深夜の終わり〜明け方前",
+      "bgm": "低い告白前の静けさ",
+      "bg": "bg_street_night_closed",
+      "commands": [
+        {
+          "type": "show",
+          "char": "lumia",
+          "expr": "neutral",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "彼女は空の、まだ暗いほうを見た。"
+        },
+        {
+          "type": "text",
+          "speaker": "ルミア",
+          "text": "明け方、屋上に上がれる。ついてくる？"
+        },
+        {
+          "type": "hide",
+          "char": "lumia"
+        },
+        {
+          "type": "jump",
+          "goto": "lumia_4"
+        }
+      ]
+    },
+    {
+      "id": "lumia_4",
+      "title": "最後の一枚",
+      "location": "シェアハウスの屋上",
+      "time": "夜明け",
+      "bgm": "白みはじめた空気",
+      "bg": "bg_rooftop_dawn",
+      "commands": [
+        {
+          "type": "bg",
+          "id": "bg_rooftop_dawn"
+        },
+        {
+          "type": "show",
+          "char": "lumia",
+          "expr": "neutral",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "東が、薄く白む。街灯は、まだ消えていない。風は冷たいが、雨の匂いではない。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "ルミアは、位置を決めて、待った。僕が無理に表情を作らなくていい、と、手で示した。シャッターは、一回だけ。"
+        },
+        {
+          "type": "hide",
+          "char": "lumia"
+        },
+        {
+          "type": "cg",
+          "id": "cg_lumia_3"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "インスタントフィルムが、ゆっくり像を持つ。彼女は写真のほうを見て、それを差し出す。目は、少しだけ伏せている。"
+        },
+        {
+          "type": "text",
+          "speaker": "ルミア",
+          "text": "残しておきたいって思ったの、久しぶり。"
+        },
+        {
+          "type": "text",
+          "speaker": "ルミア",
+          "text": "きみの顔だよ。逃げないで、見て。"
+        },
+        {
+          "type": "cg_hide"
+        },
+        {
+          "type": "show",
+          "char": "lumia",
+          "expr": "shy",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "少しぶれて、それでも、正直な一枚だった。うまく撮れた写真より、残すと決めた手つきのほうが、先に届いた。"
+        },
+        {
+          "type": "text",
+          "speaker": "ルミア",
+          "text": "下手でも、残すって決めたのは、こっち。"
+        },
+        {
+          "type": "text",
+          "speaker": "ルミア",
+          "text": "好き、っていうより先に、残したいが来た。順番、逆だったかもね。"
+        },
+        {
+          "type": "show",
+          "char": "lumia",
+          "expr": "smile",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "ルミア",
+          "text": "……それでも、好き。"
+        },
+        {
+          "type": "hide",
+          "char": "lumia"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "並んで、明けていく街を見た。肩が、触れそうで、触れて、そのままだった。写真は、コートの内ポケットにしまった。折りたくない、と、彼女は言わなかったが、仕草がそうしていた。"
+        },
+        {
+          "type": "jump",
+          "goto": "lumia_end"
+        }
+      ]
+    },
+    {
+      "id": "lumia_end",
+      "title": "ルミアエンディング",
+      "location": "写真館カフェ",
+      "time": "数日後の夜",
+      "bgm": "低いアナログな静けさ",
+      "bg": "bg_photo_cafe_night",
+      "commands": [
+        {
+          "type": "bg",
+          "id": "bg_photo_cafe_night"
+        },
+        {
+          "type": "show",
+          "char": "lumia",
+          "expr": "smile",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "数日後の夜。写真館カフェのカウンターに、現像したばかりの一枚が伏せて置いてある。"
+        },
+        {
+          "type": "text",
+          "speaker": "ルミア",
+          "text": "見ていいよ。きみが撮られてるのに気づいてない顔"
+        },
+        {
+          "type": "text",
+          "speaker": "ルミア",
+          "text": "ピント、ちゃんと合ってるでしょ。今度はわたしが合わせたから"
+        },
+        {
+          "type": "text",
+          "speaker": "ルミア",
+          "text": "……次の一枚も、きみと撮りたい。撮らなくていい夜も、一緒にいて"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "カメラのストラップが、指に一回だけ巻かれた。"
+        },
+        {
+          "type": "ending",
+          "id": "end_lumia",
+          "title": "残した一枚"
+        }
+      ]
+    },
+    {
+      "id": "selene_1",
+      "title": "この街の夜しか知らない",
+      "location": "屋上バー",
+      "time": "訪問した夜",
+      "bgm": "大人びた夜風",
+      "bg": "bg_rooftop_bar_calm",
+      "commands": [
+        {
+          "type": "bg",
+          "id": "bg_rooftop_bar_calm"
+        },
+        {
+          "type": "show",
+          "char": "selene",
+          "expr": "neutral",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "セレーヌ",
+          "text": "この席、あなたの分も残しておいたの。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "グラスが二つ。彼女のは、もう半分ない。氷が、残りの夜の長さを測っているみたいだった。"
+        },
+        {
+          "type": "text",
+          "speaker": "セレーヌ",
+          "text": "私、この街の夜しか知らないの。市場の朝も、通学路も、知らない。"
+        },
+        {
+          "type": "text",
+          "speaker": "セレーヌ",
+          "text": "昼は、ほとんど眠るか、カーテンを下ろして過ごす。この席が、私の窓なの。"
+        },
+        {
+          "type": "hide",
+          "char": "selene"
+        },
+        {
+          "type": "cg",
+          "id": "cg_selene_1"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "手すりの向こうに、夜景。彼女は振り返る。後れ毛が風に流れ、黒レースが光を拾う。左目の下——画面の右——に、小さな泣きぼくろ。視線は、こちらへ。"
+        },
+        {
+          "type": "text",
+          "speaker": "セレーヌ",
+          "text": "夜は好き。誰も私の顔を覚えていないから。"
+        },
+        {
+          "type": "cg_hide"
+        },
+        {
+          "type": "show",
+          "char": "selene",
+          "expr": "neutral",
+          "position": "center"
+        },
+        {
+          "type": "choice",
+          "options": [
+            {
+              "text": "今は、僕が覚えてる",
+              "goto": "selene_1a"
+            },
+            {
+              "text": "昼の街、一緒に歩くのは？",
+              "goto": "selene_1b"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "selene_1a",
+      "title": "この街の夜しか知らない・反応A",
+      "location": "屋上バー",
+      "time": "訪問した夜",
+      "bgm": "大人びた夜風",
+      "bg": "bg_rooftop_bar_calm",
+      "commands": [
+        {
+          "type": "show",
+          "char": "selene",
+          "expr": "shy",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "セレーヌ",
+          "text": "……覚えるのは、まだ早い。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "声は、否定しきっていなかった。"
+        },
+        {
+          "type": "jump",
+          "goto": "selene_1x"
+        }
+      ]
+    },
+    {
+      "id": "selene_1b",
+      "title": "この街の夜しか知らない・反応B",
+      "location": "屋上バー",
+      "time": "訪問した夜",
+      "bgm": "大人びた夜風",
+      "bg": "bg_rooftop_bar_calm",
+      "commands": [
+        {
+          "type": "show",
+          "char": "selene",
+          "expr": "neutral",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "指が、グラスの縁で止まる。"
+        },
+        {
+          "type": "text",
+          "speaker": "セレーヌ",
+          "text": "急がなくていいの。夜はまだ長いから。"
+        },
+        {
+          "type": "jump",
+          "goto": "selene_1x"
+        }
+      ]
+    },
+    {
+      "id": "selene_1x",
+      "title": "この街の夜しか知らない・続き",
+      "location": "屋上バー",
+      "time": "訪問した夜の閉店間際",
+      "bgm": "大人びた夜風",
+      "bg": "bg_rooftop_bar_calm",
+      "commands": [
+        {
+          "type": "show",
+          "char": "selene",
+          "expr": "smile",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "セレーヌ",
+          "text": "閉店、あと少し。よかったら、川まで付き合って。"
+        },
+        {
+          "type": "hide",
+          "char": "selene"
+        },
+        {
+          "type": "jump",
+          "goto": "selene_2"
+        }
+      ]
+    },
+    {
+      "id": "selene_2",
+      "title": "ほどいた髪",
+      "location": "川沿い",
+      "time": "閉店後〜明け方",
+      "bgm": "長い夜の名残",
+      "bg": "bg_riverside_dawn",
+      "commands": [
+        {
+          "type": "bg",
+          "id": "bg_riverside_night"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "店の人とは、短い目礼だけだった。慣れた常連の帰り方。閉店の明かりが落ちても、彼女は急がない。"
+        },
+        {
+          "type": "bg",
+          "id": "bg_riverside_dawn"
+        },
+        {
+          "type": "show",
+          "char": "selene",
+          "expr": "neutral",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "川が、鈍い色になっていく。彼女は歩きながら、お団子に手をやった。"
+        },
+        {
+          "type": "hide",
+          "char": "selene"
+        },
+        {
+          "type": "cg",
+          "id": "cg_selene_2"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "お団子がほどけ、アッシュブラウンが首筋に落ちる。後ろ姿。チョーカーの金具だけが、明け方の光を返す。顔は、見えない。"
+        },
+        {
+          "type": "text",
+          "speaker": "セレーヌ",
+          "text": "髪、ほどいたほうが好き？……正直ね。"
+        },
+        {
+          "type": "cg_hide"
+        },
+        {
+          "type": "show",
+          "char": "selene",
+          "expr": "shy_loose",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "結っていた時間より、ほどいたあとの肩のほうが、近い。"
+        },
+        {
+          "type": "choice",
+          "options": [
+            {
+              "text": "ほどいたほうが、セレーヌに近い気がする",
+              "goto": "selene_2a"
+            },
+            {
+              "text": "両方、いい",
+              "goto": "selene_2b"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "selene_2a",
+      "title": "ほどいた髪・反応A",
+      "location": "川沿い",
+      "time": "明け方",
+      "bgm": "長い夜の名残",
+      "bg": "bg_riverside_dawn",
+      "commands": [
+        {
+          "type": "show",
+          "char": "selene",
+          "expr": "shy_loose",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "風が、返事より先に髪を動かす。"
+        },
+        {
+          "type": "text",
+          "speaker": "セレーヌ",
+          "text": "近い、ね。おかしな言い方。"
+        },
+        {
+          "type": "jump",
+          "goto": "selene_2x"
+        }
+      ]
+    },
+    {
+      "id": "selene_2b",
+      "title": "ほどいた髪・反応B",
+      "location": "川沿い",
+      "time": "明け方",
+      "bgm": "長い夜の名残",
+      "bg": "bg_riverside_dawn",
+      "commands": [
+        {
+          "type": "show",
+          "char": "selene",
+          "expr": "shy_loose",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "セレーヌ",
+          "text": "優しくされるの、慣れてないの。"
+        },
+        {
+          "type": "jump",
+          "goto": "selene_2x"
+        }
+      ]
+    },
+    {
+      "id": "selene_2x",
+      "title": "ほどいた髪・続き",
+      "location": "川沿い",
+      "time": "明け方",
+      "bgm": "長い夜の名残",
+      "bg": "bg_riverside_dawn",
+      "commands": [
+        {
+          "type": "show",
+          "char": "selene",
+          "expr": "sad_loose",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "セレーヌ",
+          "text": "朝が来るのが、こんなに惜しいなんて。"
+        },
+        {
+          "type": "hide",
+          "char": "selene"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "別れ際、彼女は髪を結ばないまま、手でまとめただけだった。"
+        },
+        {
+          "type": "jump",
+          "goto": "selene_3"
+        }
+      ]
+    },
+    {
+      "id": "selene_3",
+      "title": "断ってきた理由",
+      "location": "屋上バーの近く・静かな通路",
+      "time": "別の夜",
+      "bgm": "低い告白前の静けさ",
+      "bg": "bg_rooftop_bar_late",
+      "commands": [
+        {
+          "type": "bg",
+          "id": "bg_rooftop_bar_late"
+        },
+        {
+          "type": "show",
+          "char": "selene",
+          "expr": "neutral",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "また、同じ席だった。客は、ほとんどいない。"
+        },
+        {
+          "type": "text",
+          "speaker": "セレーヌ",
+          "text": "前の街では、昼間の私を期待されることが多かったの。正しい笑顔、とか。"
+        },
+        {
+          "type": "text",
+          "speaker": "セレーヌ",
+          "text": "家族でも、仕事でもない。一緒にいた人が、昼間の私のほうを好んでいただけ。悪い人じゃなかったのよ。"
+        },
+        {
+          "type": "text",
+          "speaker": "セレーヌ",
+          "text": "それができなくなって、ここへ来た。夜は、顔を役に立てなくてよかった。"
+        },
+        {
+          "type": "text",
+          "speaker": "セレーヌ",
+          "text": "出ていかないか、とは、何度も言われたわ。ちゃんとした街で、やり直したら、って。"
+        },
+        {
+          "type": "text",
+          "speaker": "セレーヌ",
+          "text": "この街の夜しか知らない、は、逃げにも聞こえるでしょう。"
+        },
+        {
+          "type": "text",
+          "speaker": "セレーヌ",
+          "text": "でも、逃げたあとで残った私が、いちばん私なの。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "声は、揺れない。誰かを責める話には、しなかった。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "彼女が、こちらの視線に気づく。左目の下。"
+        },
+        {
+          "type": "show",
+          "char": "selene",
+          "expr": "shy",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "セレーヌ",
+          "text": "ほくろ？……見つけたの、あなたが初めてよ。"
+        },
+        {
+          "type": "choice",
+          "options": [
+            {
+              "text": "出ていかなくていい。僕は、この夜にいる",
+              "goto": "selene_3a"
+            },
+            {
+              "text": "昼の君も見てみたい。強制はしない",
+              "goto": "selene_3b"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "selene_3a",
+      "title": "断ってきた理由・反応A",
+      "location": "屋上バー",
+      "time": "別の夜",
+      "bgm": "低い告白前の静けさ",
+      "bg": "bg_rooftop_bar_late",
+      "commands": [
+        {
+          "type": "show",
+          "char": "selene",
+          "expr": "smile",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "言い切れる自信は、まだなかった。それが顔に出たらしい。"
+        },
+        {
+          "type": "text",
+          "speaker": "セレーヌ",
+          "text": "あなた、嘘をつくとき少し笑うのね。"
+        },
+        {
+          "type": "show",
+          "char": "selene",
+          "expr": "neutral",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "セレーヌ",
+          "text": "責めているんじゃない。本当であってほしいとき、出る顔ね。"
+        },
+        {
+          "type": "jump",
+          "goto": "selene_3x"
+        }
+      ]
+    },
+    {
+      "id": "selene_3b",
+      "title": "断ってきた理由・反応B",
+      "location": "屋上バー",
+      "time": "別の夜",
+      "bgm": "低い告白前の静けさ",
+      "bg": "bg_rooftop_bar_late",
+      "commands": [
+        {
+          "type": "show",
+          "char": "selene",
+          "expr": "smile",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "セレーヌ",
+          "text": "……見てみたい、だけなら、悪くない。"
+        },
+        {
+          "type": "jump",
+          "goto": "selene_3x"
+        }
+      ]
+    },
+    {
+      "id": "selene_3x",
+      "title": "断ってきた理由・続き",
+      "location": "屋上バー",
+      "time": "別の夜",
+      "bgm": "低い告白前の静けさ",
+      "bg": "bg_rooftop_bar_late",
+      "commands": [
+        {
+          "type": "show",
+          "char": "selene",
+          "expr": "neutral",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "セレーヌ",
+          "text": "次に来る夜は、もう少し、長くいてもいい。"
+        },
+        {
+          "type": "hide",
+          "char": "selene"
+        },
+        {
+          "type": "jump",
+          "goto": "selene_4"
+        }
+      ]
+    },
+    {
+      "id": "selene_4",
+      "title": "次の夜も",
+      "location": "屋上バー・いつもの席",
+      "time": "最後の夜",
+      "bgm": "近い距離の夜",
+      "bg": "bg_rooftop_bar_calm",
+      "commands": [
+        {
+          "type": "bg",
+          "id": "bg_rooftop_bar_calm"
+        },
+        {
+          "type": "show",
+          "char": "selene",
+          "expr": "neutral",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "同じ席。グラスの結露が、カウンターの木目をゆっくり暗くする。今夜は、ほかに客の声がない。"
+        },
+        {
+          "type": "hide",
+          "char": "selene"
+        },
+        {
+          "type": "cg",
+          "id": "cg_selene_3"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "並んだ指先が、触れる。彼女は指を見ていて、顔は枠の端にだけある。チョーカーのしずくが、小さく揺れる。"
+        },
+        {
+          "type": "text",
+          "speaker": "セレーヌ",
+          "text": "次の夜も、隣にいて。"
+        },
+        {
+          "type": "text",
+          "speaker": "セレーヌ",
+          "text": "……その次の夜も、できれば。"
+        },
+        {
+          "type": "cg_hide"
+        },
+        {
+          "type": "show",
+          "char": "selene",
+          "expr": "smile",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "泣きはしない。ただ、肩の力が、少し抜けた。隣にいる、という約束は、今夜限りの話には聞こえない。"
+        },
+        {
+          "type": "hide",
+          "char": "selene"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "夜風は、もう邪魔をしなかった。次の夜の席が、すでに二つ分、空いている気がした。朝が来ても、隣の約束は、打ち消されない。"
+        },
+        {
+          "type": "jump",
+          "goto": "selene_end"
+        }
+      ]
+    },
+    {
+      "id": "selene_end",
+      "title": "セレーヌエンディング",
+      "location": "屋上バー・いつもの席",
+      "time": "数日後・風のない夜",
+      "bgm": "近い距離の夜",
+      "bg": "bg_rooftop_bar_calm",
+      "commands": [
+        {
+          "type": "bg",
+          "id": "bg_rooftop_bar_calm"
+        },
+        {
+          "type": "show",
+          "char": "selene",
+          "expr": "smile_loose",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "数日後、同じ席。風のない夜。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "グラスは二つ。彼女の髪は、結んでいなかった。"
+        },
+        {
+          "type": "text",
+          "speaker": "セレーヌ",
+          "text": "今夜は、私が先に来て待っていたの。"
+        },
+        {
+          "type": "text",
+          "speaker": "セレーヌ",
+          "text": "……隣、空いてるよ。あなたの席。"
+        },
+        {
+          "type": "ending",
+          "id": "end_selene",
+          "title": "次の夜も、隣にいて"
+        }
+      ]
+    },
+    {
+      "id": "lilia_1",
+      "title": "勝手に注文",
+      "location": "深夜のカフェ",
+      "time": "訪問した夜",
+      "bgm": "軽やかな深夜",
+      "bg": "bg_diner_late",
+      "commands": [
+        {
+          "type": "bg",
+          "id": "bg_diner_late"
+        },
+        {
+          "type": "show",
+          "char": "lilia",
+          "expr": "smile",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "席に着く前に、カップが二つ、料理が二つ。リリアは、得意そうに顎を引いた。注文を確認する暇を、最初からくれない人だった。"
+        },
+        {
+          "type": "text",
+          "speaker": "リリア",
+          "text": "{name}の分も頼んである。遠慮は、お隣さんの義務に入ってないから。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "スープが、まだ湯気を立てている。彼女は、こちらの顔を見るのが楽しそうだった。"
+        },
+        {
+          "type": "text",
+          "speaker": "リリア",
+          "text": "ねえ、今の顔もう一回して？"
+        },
+        {
+          "type": "text",
+          "speaker": "リリア",
+          "text": "お隣さんの特権、使っちゃおっかな。"
+        },
+        {
+          "type": "choice",
+          "options": [
+            {
+              "text": "特権、結構好きに使われてる気がする",
+              "goto": "lilia_1a"
+            },
+            {
+              "text": "ごちそうになる。今度は僕が",
+              "goto": "lilia_1b"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lilia_1a",
+      "title": "勝手に注文・反応A",
+      "location": "深夜のカフェ",
+      "time": "訪問した夜",
+      "bgm": "軽やかな深夜",
+      "bg": "bg_diner_late",
+      "commands": [
+        {
+          "type": "show",
+          "char": "lilia",
+          "expr": "smile",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "リリア",
+          "text": "気がする、じゃなくて事実。ふふ。"
+        },
+        {
+          "type": "jump",
+          "goto": "lilia_1x"
+        }
+      ]
+    },
+    {
+      "id": "lilia_1b",
+      "title": "勝手に注文・反応B",
+      "location": "深夜のカフェ",
+      "time": "訪問した夜",
+      "bgm": "軽やかな深夜",
+      "bg": "bg_diner_late",
+      "commands": [
+        {
+          "type": "show",
+          "char": "lilia",
+          "expr": "smile",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "リリア",
+          "text": "いいよ、そういうの。記録しておくね。"
+        },
+        {
+          "type": "jump",
+          "goto": "lilia_1x"
+        }
+      ]
+    },
+    {
+      "id": "lilia_1x",
+      "title": "勝手に注文・続き",
+      "location": "深夜のカフェ〜帰り道",
+      "time": "訪問した夜",
+      "bgm": "軽やかな深夜",
+      "bg": "bg_diner_late",
+      "commands": [
+        {
+          "type": "show",
+          "char": "lilia",
+          "expr": "smile",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "八重歯が見える。からかいの声は、店の明かりと同じ温度だった。悪意はなくて、近い距離の確認みたいに聞こえる。"
+        },
+        {
+          "type": "hide",
+          "char": "lilia"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "帰り、空はまだ、乾いていた。"
+        },
+        {
+          "type": "jump",
+          "goto": "lilia_2"
+        }
+      ]
+    },
+    {
+      "id": "lilia_2",
+      "title": "一本の傘",
+      "location": "雨の帰り道",
+      "time": "別の夜",
+      "bgm": "雨音の近さ",
+      "bg": "bg_street_rain_umbrella",
+      "commands": [
+        {
+          "type": "bg",
+          "id": "bg_street_rain_night"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "別の夜。帰りに、雨が落ちてきた。僕の傘は、また部屋にいる。"
+        },
+        {
+          "type": "show",
+          "char": "lilia",
+          "expr": "shy",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "リリア",
+          "text": "傘、こっち寄って。濡れるでしょ。"
+        },
+        {
+          "type": "hide",
+          "char": "lilia"
+        },
+        {
+          "type": "bg",
+          "id": "bg_street_rain_umbrella"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "一本の傘は、正直、少し狭い。肩が近い。リリアは最初、よくしゃべっていた。隣室の壁が薄い話、夜食の残り、明日の天気。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "途中で、急に黙った。雨の音だけが、残る。肩の温度に、自分で気づいてしまったみたいだった。"
+        },
+        {
+          "type": "cg",
+          "id": "cg_lilia_2"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "横顔は、耳まで赤い。目は、路面のほうへ逸れている。白い髪に、雨の影。花の髪飾りと、黒いリボン。X字のヘアピン。今夜は、八重歯を見せていない。"
+        },
+        {
+          "type": "cg_hide"
+        },
+        {
+          "type": "show",
+          "char": "lilia",
+          "expr": "shy",
+          "position": "center"
+        },
+        {
+          "type": "choice",
+          "options": [
+            {
+              "text": "黙っている彼女に、合わせて歩く",
+              "goto": "lilia_2a"
+            },
+            {
+              "text": "急に静かだね",
+              "goto": "lilia_2b"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lilia_2a",
+      "title": "一本の傘・反応A",
+      "location": "雨の帰り道",
+      "time": "別の夜",
+      "bgm": "雨音の近さ",
+      "bg": "bg_street_rain_umbrella",
+      "commands": [
+        {
+          "type": "show",
+          "char": "lilia",
+          "expr": "shy",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "彼女の耳が、さらに赤い。まだ、黙っている。傘の柄を持つ指に、力が入っていた。"
+        },
+        {
+          "type": "jump",
+          "goto": "lilia_2x"
+        }
+      ]
+    },
+    {
+      "id": "lilia_2b",
+      "title": "一本の傘・反応B",
+      "location": "雨の帰り道",
+      "time": "別の夜",
+      "bgm": "雨音の近さ",
+      "bg": "bg_street_rain_umbrella",
+      "commands": [
+        {
+          "type": "show",
+          "char": "lilia",
+          "expr": "shy",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "リリア",
+          "text": "……なんでも。雨の音、聞いてた。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "嘘は、下手だった。"
+        },
+        {
+          "type": "jump",
+          "goto": "lilia_2x"
+        }
+      ]
+    },
+    {
+      "id": "lilia_2x",
+      "title": "一本の傘・続き",
+      "location": "シェアハウスの玄関",
+      "time": "別の夜",
+      "bgm": "雨音の近さ",
+      "bg": "bg_sharehouse_ext_rain",
+      "commands": [
+        {
+          "type": "bg",
+          "id": "bg_sharehouse_ext_rain"
+        },
+        {
+          "type": "show",
+          "char": "lilia",
+          "expr": "shy",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "リリア",
+          "text": "おやすみ、{name}。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "いつもの冗談は、なかった。ドアが、静かに閉まる。"
+        },
+        {
+          "type": "hide",
+          "char": "lilia"
+        },
+        {
+          "type": "bg",
+          "id": "bg_sharehouse_hall_night"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "部屋に戻ると、隣の壁が、こん、こん、と二回鳴った。おやすみの代わりなのだろう。僕も、同じように二回だけ返した。"
+        },
+        {
+          "type": "jump",
+          "goto": "lilia_3"
+        }
+      ]
+    },
+    {
+      "id": "lilia_3",
+      "title": "やりすぎた夜",
+      "location": "シェアハウス・廊下",
+      "time": "また別の夜",
+      "bgm": "はっきりした室内",
+      "bg": "bg_sharehouse_hall_night",
+      "commands": [
+        {
+          "type": "bg",
+          "id": "bg_sharehouse_hall_night"
+        },
+        {
+          "type": "show",
+          "char": "lilia",
+          "expr": "smile",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "いつもの廊下。リリアは、袋をぶら下げて、軽く言った。"
+        },
+        {
+          "type": "text",
+          "speaker": "リリア",
+          "text": "{name}って、放っておくとすぐ迷子になるから。私が隣でよかったんじゃない？"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "笑い話のつもりだったのが、分かった。隣にいることを、便利さの話に着地させてしまっただけだ。見下す声ではなかった。距離を笑いで測ろうとして、目盛りを一つ、飛ばした。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "それでも、胸のどこかが、一度だけ間違って落ちた。自分は、隣であるかぎりでしか残らない、と、冗談の形で言われた気がした。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "その顔を、彼女は見た。"
+        },
+        {
+          "type": "show",
+          "char": "lilia",
+          "expr": "surprised",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "笑顔が、消える。"
+        },
+        {
+          "type": "show",
+          "char": "lilia",
+          "expr": "sad",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "リリア",
+          "text": "ごめん。今のは、ほんとにやりすぎた。"
+        },
+        {
+          "type": "text",
+          "speaker": "リリア",
+          "text": "からかってないよ。……ちょっとしか。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "いつもの逃げを、自分で止めた。"
+        },
+        {
+          "type": "text",
+          "speaker": "リリア",
+          "text": "……いや。今のは、からかいじゃすまない。本気で、謝る。"
+        },
+        {
+          "type": "choice",
+          "options": [
+            {
+              "text": "分かった。今の顔は、もう見たくないな",
+              "goto": "lilia_3a"
+            },
+            {
+              "text": "冗談だって分かってる。でも、今のは少し引っかかった",
+              "goto": "lilia_3b"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lilia_3a",
+      "title": "やりすぎた夜・反応A",
+      "location": "シェアハウス・廊下",
+      "time": "また別の夜",
+      "bgm": "はっきりした室内",
+      "bg": "bg_sharehouse_hall_night",
+      "commands": [
+        {
+          "type": "show",
+          "char": "lilia",
+          "expr": "shy",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "リリア",
+          "text": "……うん。ずるいなぁ、そういうとこ。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "責めてはいない。許す声が、まっすぐだっただけだ。"
+        },
+        {
+          "type": "jump",
+          "goto": "lilia_3x"
+        }
+      ]
+    },
+    {
+      "id": "lilia_3b",
+      "title": "やりすぎた夜・反応B",
+      "location": "シェアハウス・廊下",
+      "time": "また別の夜",
+      "bgm": "はっきりした室内",
+      "bg": "bg_sharehouse_hall_night",
+      "commands": [
+        {
+          "type": "show",
+          "char": "lilia",
+          "expr": "sad",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "リリア",
+          "text": "……うん。二度と、あんな言い方しない。"
+        },
+        {
+          "type": "jump",
+          "goto": "lilia_3x"
+        }
+      ]
+    },
+    {
+      "id": "lilia_3x",
+      "title": "やりすぎた夜・続き",
+      "location": "シェアハウス・廊下",
+      "time": "また別の夜",
+      "bgm": "はっきりした室内",
+      "bg": "bg_sharehouse_hall_night",
+      "commands": [
+        {
+          "type": "show",
+          "char": "lilia",
+          "expr": "shy",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "リリア",
+          "text": "明日の夜、屋上、来て。夜食、持っていくから。ちゃんと、話す。"
+        },
+        {
+          "type": "hide",
+          "char": "lilia"
+        },
+        {
+          "type": "jump",
+          "goto": "lilia_4"
+        }
+      ]
+    },
+    {
+      "id": "lilia_4",
+      "title": "今のなし、もう一回",
+      "location": "シェアハウスの屋上テラス",
+      "time": "約束の夜",
+      "bgm": "告白の照れ",
+      "bg": "bg_sharehouse_rooftop",
+      "commands": [
+        {
+          "type": "bg",
+          "id": "bg_sharehouse_rooftop"
+        },
+        {
+          "type": "show",
+          "char": "lilia",
+          "expr": "shy",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "夜食の袋は、開かないまま、足元にある。リリアは、何度か口を開いて、閉じた。風が、白い髪を少し動かす。"
+        },
+        {
+          "type": "text",
+          "speaker": "リリア",
+          "text": "好き……って、噛んだ。今のなし、もう一回言わせて。"
+        },
+        {
+          "type": "hide",
+          "char": "lilia"
+        },
+        {
+          "type": "cg",
+          "id": "cg_lilia_3"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "照れ笑いに、小さな八重歯。余裕ではない。視線は一度、横へ逸れて、戻ってくる。白い花と黒リボン。目元の桃色。"
+        },
+        {
+          "type": "text",
+          "speaker": "リリア",
+          "text": "{name}。好き。からかいとか、特権とか、そういうのでもなく。"
+        },
+        {
+          "type": "text",
+          "speaker": "リリア",
+          "text": "……ちゃんと、好き。"
+        },
+        {
+          "type": "cg_hide"
+        },
+        {
+          "type": "show",
+          "char": "lilia",
+          "expr": "shy",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "袋の中の菓子が、風で小さく鳴った。二人とも、それを聞いて、やっと笑えた。噛んだ告白の続きは、もう一度で足りていた。"
+        },
+        {
+          "type": "hide",
+          "char": "lilia"
+        },
+        {
+          "type": "jump",
+          "goto": "lilia_end"
+        }
+      ]
+    },
+    {
+      "id": "lilia_end",
+      "title": "リリアエンディング",
+      "location": "シェアハウス・廊下",
+      "time": "数日後の夜",
+      "bgm": "隣室の陽気さ",
+      "bg": "bg_sharehouse_hall_night",
+      "commands": [
+        {
+          "type": "bg",
+          "id": "bg_sharehouse_hall_night"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "数日後の夜。壁が、こん、と二回鳴る。ドアを開けると、リリアが袋を二つ提げて立っていた。"
+        },
+        {
+          "type": "show",
+          "char": "lilia",
+          "expr": "smile",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "リリア",
+          "text": "夜食、二人分。……今日からは、ついでじゃないからね。"
+        },
+        {
+          "type": "text",
+          "speaker": "リリア",
+          "text": "ねえ{name}、壁、もう叩かなくていいよ。呼んでくれたら、すぐ行くから。"
+        },
+        {
+          "type": "show",
+          "char": "lilia",
+          "expr": "shy_smile",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "照れ隠しの八重歯が、廊下の灯りで小さく光った。"
+        },
+        {
+          "type": "ending",
+          "id": "end_lilia",
+          "title": "今のなし、もう一回"
+        }
+      ]
+    },
+    {
+      "id": "cecilia_1",
+      "title": "星の見える夜",
+      "location": "花屋カフェ・窓際",
+      "time": "訪問のあと、星の夜",
+      "bgm": "観察の静けさ",
+      "bg": "bg_starry_window",
+      "commands": [
+        {
+          "type": "bg",
+          "id": "bg_starry_window"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "訪ねたあとの、星の見える夜。窓の外に星がある。雨の気配はない。店内の花の匂いだけが、少し濃い。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "あの夜の白ユリのことは、まだ二人のあいだにあった。渡したか、受け取ったかは、もう、どちらでもよかった。"
+        },
+        {
+          "type": "show",
+          "char": "cecilia",
+          "expr": "neutral",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "足音は、ほとんどしなかった。彼女は、いつの間にか隣に立っている。右目は、前髪の下。星の光だけが、黄緑の左目に細い線を入れる。"
+        },
+        {
+          "type": "text",
+          "speaker": "セシリア",
+          "text": "嘘をつくとき、左手を隠しますね。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "通りかかっただけ、と言いかけた手が、左のポケットへ入っていた。指摘は短い。問い詰めようとはしない人だった。"
+        },
+        {
+          "type": "text",
+          "speaker": "セシリア",
+          "text": "見ているだけです。あなたのことを。"
+        },
+        {
+          "type": "hide",
+          "char": "cecilia"
+        },
+        {
+          "type": "cg",
+          "id": "cg_cecilia_1"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "星空の窓辺で、彼女が横顔を向ける。右目は前髪で隠れたまま、左目だけが星を映す。ティアラの黄緑の石。髪の内側のレモンイエロー。白ユリの髪飾り。視線は、窓の外と、斜め後ろの僕とのあいだ。"
+        },
+        {
+          "type": "cg_hide"
+        },
+        {
+          "type": "show",
+          "char": "cecilia",
+          "expr": "neutral",
+          "position": "center"
+        },
+        {
+          "type": "choice",
+          "options": [
+            {
+              "text": "見られてたなら、隠す意味なかったね",
+              "goto": "cecilia_1a"
+            },
+            {
+              "text": "そんなに分かるものなの",
+              "goto": "cecilia_1b"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cecilia_1a",
+      "title": "星の見える夜・反応A",
+      "location": "花屋カフェ・窓際",
+      "time": "星の夜",
+      "bgm": "観察の静けさ",
+      "bg": "bg_starry_window",
+      "commands": [
+        {
+          "type": "show",
+          "char": "cecilia",
+          "expr": "smile",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "セシリア",
+          "text": "ふふ、驚いた顔。初めて見ました。"
+        },
+        {
+          "type": "jump",
+          "goto": "cecilia_1x"
+        }
+      ]
+    },
+    {
+      "id": "cecilia_1b",
+      "title": "星の見える夜・反応B",
+      "location": "花屋カフェ・窓際",
+      "time": "星の夜",
+      "bgm": "観察の静けさ",
+      "bg": "bg_starry_window",
+      "commands": [
+        {
+          "type": "show",
+          "char": "cecilia",
+          "expr": "neutral",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "セシリア",
+          "text": "分かるものだけ、分かります。それ以上は、聞きません。"
+        },
+        {
+          "type": "jump",
+          "goto": "cecilia_1x"
+        }
+      ]
+    },
+    {
+      "id": "cecilia_1x",
+      "title": "星の見える夜・続き",
+      "location": "花屋カフェ・窓際",
+      "time": "星の夜",
+      "bgm": "観察の静けさ",
+      "bg": "bg_starry_window",
+      "commands": [
+        {
+          "type": "show",
+          "char": "cecilia",
+          "expr": "neutral",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "セシリア",
+          "text": "夜の美術館で、特別公開があります。残券が、二枚。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "誘いにしては、短い。それでも、券は、すでに二つ、細い指のあいだにあった。"
+        },
+        {
+          "type": "hide",
+          "char": "cecilia"
+        },
+        {
+          "type": "jump",
+          "goto": "cecilia_2"
+        }
+      ]
+    },
+    {
+      "id": "cecilia_2",
+      "title": "選ばれた場所",
+      "location": "夜の美術館",
+      "time": "閉館後の特別公開",
+      "bgm": "展示室の静けさ",
+      "bg": "bg_museum_night",
+      "commands": [
+        {
+          "type": "bg",
+          "id": "bg_museum_night"
+        },
+        {
+          "type": "show",
+          "char": "cecilia",
+          "expr": "neutral",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "閉館後の廊下は、靴音を吸収する。植物画の展示だった。ラベルの文字だけが、白い。監視員の足音も、遠い。"
+        },
+        {
+          "type": "text",
+          "speaker": "セシリア",
+          "text": "美しいものは、誰かに選ばれてここにある。"
+        },
+        {
+          "type": "text",
+          "speaker": "セシリア",
+          "text": "花は、選ばれた場所で一番きれいに咲くんです。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "彼女は、一枚のユリの画の前で、止まった。長話はしない。画の中の花は、誰かの手でこの壁に来たことが、額縁の年譜に書いてある。"
+        },
+        {
+          "type": "text",
+          "speaker": "セシリア",
+          "text": "私、待つのは得意なんです。……得意だった、が正しいかもしれません。"
+        },
+        {
+          "type": "choice",
+          "options": [
+            {
+              "text": "黙って、隣を歩く",
+              "goto": "cecilia_2a"
+            },
+            {
+              "text": "今は、待ちたくない？",
+              "goto": "cecilia_2b"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cecilia_2a",
+      "title": "選ばれた場所・反応A",
+      "location": "夜の美術館",
+      "time": "閉館後の特別公開",
+      "bgm": "展示室の静けさ",
+      "bg": "bg_museum_night",
+      "commands": [
+        {
+          "type": "show",
+          "char": "cecilia",
+          "expr": "neutral",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "彼女は、展示のガラスに映ったこちらの顔だけを見て、小さく息を吐いた。言葉は、なかった。それで十分だと、伝わった。"
+        },
+        {
+          "type": "jump",
+          "goto": "cecilia_2x"
+        }
+      ]
+    },
+    {
+      "id": "cecilia_2b",
+      "title": "選ばれた場所・反応B",
+      "location": "夜の美術館",
+      "time": "閉館後の特別公開",
+      "bgm": "展示室の静けさ",
+      "bg": "bg_museum_night",
+      "commands": [
+        {
+          "type": "show",
+          "char": "cecilia",
+          "expr": "shy",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "セシリア",
+          "text": "答えは、まだ持っていません。ただ、待っているだけの夜は、終わりにしたいと思いました。"
+        },
+        {
+          "type": "jump",
+          "goto": "cecilia_2x"
+        }
+      ]
+    },
+    {
+      "id": "cecilia_2x",
+      "title": "選ばれた場所・続き",
+      "location": "夜の美術館〜屋上への道",
+      "time": "閉館後",
+      "bgm": "展示室の静けさ",
+      "bg": "bg_museum_night",
+      "commands": [
+        {
+          "type": "show",
+          "char": "cecilia",
+          "expr": "neutral",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "出口の先に、建物の屋上テラスがある。彼女は、一度だけ、こちらを見た。前髪は、まだ下がっている。"
+        },
+        {
+          "type": "hide",
+          "char": "cecilia"
+        },
+        {
+          "type": "jump",
+          "goto": "cecilia_3"
+        }
+      ]
+    },
+    {
+      "id": "cecilia_3",
+      "title": "少しだけ、このままで",
+      "location": "美術館の屋上テラス",
+      "time": "同じ夜・更けて",
+      "bgm": "柔らかい距離",
+      "bg": "bg_terrace_night",
+      "commands": [
+        {
+          "type": "bg",
+          "id": "bg_terrace_night"
+        },
+        {
+          "type": "show",
+          "char": "cecilia",
+          "expr": "neutral",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "今まで、半歩だけ離れて歩いていた人が、自分から隣に座った。肩の距離を決めたのは、今夜が初めてだった。"
+        },
+        {
+          "type": "hide",
+          "char": "cecilia"
+        },
+        {
+          "type": "cg",
+          "id": "cg_cecilia_2"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "肩にもたれる。目を閉じて、小さく笑う。右目は、前髪の下のまま——この角度でも、見せない。白ユリの匂い。髪が、肩に触れる。"
+        },
+        {
+          "type": "text",
+          "speaker": "セシリア",
+          "text": "少しだけ、このままで。……だめですか？"
+        },
+        {
+          "type": "text",
+          "speaker": "セシリア",
+          "text": "今日は、少しだけ話しすぎました。あなたのせいです。"
+        },
+        {
+          "type": "cg_hide"
+        },
+        {
+          "type": "show",
+          "char": "cecilia",
+          "expr": "shy",
+          "position": "center"
+        },
+        {
+          "type": "choice",
+          "options": [
+            {
+              "text": "もっと、このままでいい",
+              "goto": "cecilia_3a"
+            },
+            {
+              "text": "帰りたくなったら、言って",
+              "goto": "cecilia_3b"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cecilia_3a",
+      "title": "少しだけ、このままで・反応A",
+      "location": "美術館の屋上テラス",
+      "time": "同じ夜・更けて",
+      "bgm": "柔らかい距離",
+      "bg": "bg_terrace_night",
+      "commands": [
+        {
+          "type": "show",
+          "char": "cecilia",
+          "expr": "shy",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "彼女の指が、わずかに袖をつかむ。言葉はない。"
+        },
+        {
+          "type": "jump",
+          "goto": "cecilia_3x"
+        }
+      ]
+    },
+    {
+      "id": "cecilia_3b",
+      "title": "少しだけ、このままで・反応B",
+      "location": "美術館の屋上テラス",
+      "time": "同じ夜・更けて",
+      "bgm": "柔らかい距離",
+      "bg": "bg_terrace_night",
+      "commands": [
+        {
+          "type": "show",
+          "char": "cecilia",
+          "expr": "smile",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "セシリア",
+          "text": "……優しい。今は、帰りたくないです。"
+        },
+        {
+          "type": "jump",
+          "goto": "cecilia_3x"
+        }
+      ]
+    },
+    {
+      "id": "cecilia_3x",
+      "title": "少しだけ、このままで・続き",
+      "location": "美術館の屋上テラス",
+      "time": "同じ夜・更けて",
+      "bgm": "柔らかい距離",
+      "bg": "bg_terrace_night",
+      "commands": [
+        {
+          "type": "show",
+          "char": "cecilia",
+          "expr": "neutral",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "セシリア",
+          "text": "夜明け前、花屋に行きます。開店前の、あの店です。"
+        },
+        {
+          "type": "hide",
+          "char": "cecilia"
+        },
+        {
+          "type": "jump",
+          "goto": "cecilia_4"
+        }
+      ]
+    },
+    {
+      "id": "cecilia_4",
+      "title": "選んだのは",
+      "location": "花屋・開店前",
+      "time": "夜明け",
+      "bgm": "告白の静けさ",
+      "bg": "bg_flower_shop_dawn",
+      "commands": [
+        {
+          "type": "bg",
+          "id": "bg_flower_shop_dawn"
+        },
+        {
+          "type": "show",
+          "char": "cecilia",
+          "expr": "neutral",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "シャッターは、内側から開いていた。店の人とは、短い挨拶だけだったらしい。バケツの水が、明け方の光をすくっている。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "セシリアは、白ユリを一本、差し出した。花の重さは、ほとんどない。それでも、渡す手が慎重だった。"
+        },
+        {
+          "type": "hide",
+          "char": "cecilia"
+        },
+        {
+          "type": "cg",
+          "id": "cg_cecilia_3"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "空いたほうの手で、前髪を上げる。隠していた右目が、見える。左と同じ黄緑で、両方の目が、こちらを見ている。ティアラ。内側のレモン。花。声は、静か。"
+        },
+        {
+          "type": "text",
+          "speaker": "セシリア",
+          "text": "あなたにだけ、全部見せたかったんです。"
+        },
+        {
+          "type": "text",
+          "speaker": "セシリア",
+          "text": "私が選んだのは、あなたです。"
+        },
+        {
+          "type": "cg_hide"
+        },
+        {
+          "type": "show",
+          "char": "cecilia",
+          "expr": "smile_eye",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "彼女の前髪は、もう、下ろされなかった。両方の目で見られる、という静かな熱が、花の匂いより先に残った。"
+        },
+        {
+          "type": "jump",
+          "goto": "cecilia_end"
+        }
+      ]
+    },
+    {
+      "id": "cecilia_end",
+      "title": "セシリアエンディング",
+      "location": "花屋",
+      "time": "数日後の夕方",
+      "bgm": "花の静けさ",
+      "bg": "bg_flower_shop_evening",
+      "commands": [
+        {
+          "type": "bg",
+          "id": "bg_flower_shop_evening"
+        },
+        {
+          "type": "show",
+          "char": "cecilia",
+          "expr": "smile_eye",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "数日後の夕方。花屋のカウンターに、白ユリが二本並んでいる。"
+        },
+        {
+          "type": "text",
+          "speaker": "セシリア",
+          "text": "一本ずつ、選びました。私と、あなたの分です。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "前髪は、耳にかけたまま。両方の目が、少しだけ照れていた。"
+        },
+        {
+          "type": "ending",
+          "id": "end_cecilia",
+          "title": "私が選んだのは、あなたです"
+        }
+      ]
+    },
+    {
+      "id": "luche_1",
+      "title": "初めてのイヤーカフ",
+      "location": "夜のアクセサリーショップ前",
+      "time": "訪問のあと",
+      "bgm": "ショーウィンドウの光",
+      "bg": "bg_accessory_shop_night",
+      "commands": [
+        {
+          "type": "bg",
+          "id": "bg_accessory_shop_night"
+        },
+        {
+          "type": "show",
+          "char": "luche",
+          "expr": "smile",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "窓の店から、そのまま商店街へ。ルシェは、ショーウィンドウの前で止まると、右耳に触れた。ガラスの中の自分を、確かめるみたいな手つき。"
+        },
+        {
+          "type": "text",
+          "speaker": "ルシェ",
+          "text": "見て、これ。わたしが初めて自分のお金で買ったの。"
+        },
+        {
+          "type": "show",
+          "char": "luche",
+          "expr": "neutral",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "ルシェ",
+          "text": "わたしが選んだ名前なんだ、ルシェって。服も、これも、全部わたしが選んだもの。"
+        },
+        {
+          "type": "text",
+          "speaker": "ルシェ",
+          "text": "……ちょっとだけ、自慢。"
+        },
+        {
+          "type": "choice",
+          "options": [
+            {
+              "text": "似合ってる。ルシェが選んだって感じがする",
+              "goto": "luche_1a",
+              "effects": {
+                "aff_luche": 2
+              }
+            },
+            {
+              "text": "次は一緒に選ぼうか",
+              "goto": "luche_1b",
+              "effects": {
+                "aff_luche": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "luche_1a",
+      "title": "初めてのイヤーカフ・反応A",
+      "location": "夜のアクセサリーショップ前",
+      "time": "訪問のあと",
+      "bgm": "ショーウィンドウの光",
+      "bg": "bg_accessory_shop_night",
+      "commands": [
+        {
+          "type": "show",
+          "char": "luche_reflect",
+          "expr": "shy",
+          "position": "left"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "ショーウィンドウの反射だけが、先に照れる。本人の顔は、まだ追いつけていない。"
+        },
+        {
+          "type": "hide",
+          "char": "luche_reflect"
+        },
+        {
+          "type": "show",
+          "char": "luche",
+          "expr": "shy",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "ルシェ",
+          "text": "ちょ、本気で褒めるのは禁止！"
+        },
+        {
+          "type": "jump",
+          "goto": "luche_1x"
+        }
+      ]
+    },
+    {
+      "id": "luche_1b",
+      "title": "初めてのイヤーカフ・反応B",
+      "location": "夜のアクセサリーショップ前",
+      "time": "訪問のあと",
+      "bgm": "ショーウィンドウの光",
+      "bg": "bg_accessory_shop_night",
+      "commands": [
+        {
+          "type": "show",
+          "char": "luche",
+          "expr": "smile",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "ルシェ",
+          "text": "ふふ、本気にした？　……いいよ、約束ね。"
+        },
+        {
+          "type": "jump",
+          "goto": "luche_1x"
+        }
+      ]
+    },
+    {
+      "id": "luche_1x",
+      "title": "初めてのイヤーカフ・続き",
+      "location": "夜のアクセサリーショップ前",
+      "time": "訪問のあと",
+      "bgm": "ショーウィンドウの光",
+      "bg": "bg_accessory_shop_night",
+      "commands": [
+        {
+          "type": "show",
+          "char": "luche",
+          "expr": "smile",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "ルシェ",
+          "text": "ねえ、もうちょっと先。噴水、あるでしょ。あそこに、見せたいものがある。"
+        },
+        {
+          "type": "hide",
+          "char": "luche"
+        },
+        {
+          "type": "jump",
+          "goto": "luche_2"
+        }
+      ]
+    },
+    {
+      "id": "luche_2",
+      "title": "映層の散歩",
+      "location": "夜の噴水広場",
+      "time": "同じ夜",
+      "bgm": "水面の神秘",
+      "bg": "bg_fountain_night",
+      "commands": [
+        {
+          "type": "bg",
+          "id": "bg_fountain_night"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "噴水の水面に、街の灯りが割れて浮かんでいる。風はなく、水面だけが、別の深さに見えた。"
+        },
+        {
+          "type": "cg",
+          "id": "cg_luche_2"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "その水面から、ルシェがすっと出て、手を差し出した。パールホワイトの袖。右手首の小さな手鏡。水は、服を濡らしていない。噴水の音が、こちら側では遠く、鏡の側では近く聞こえる。"
+        },
+        {
+          "type": "text",
+          "speaker": "ルシェ",
+          "text": "こっち。鏡の向こう、見せてあげる。"
+        },
+        {
+          "type": "cg_hide"
+        },
+        {
+          "type": "show",
+          "char": "luche",
+          "expr": "neutral",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "ルシェ",
+          "text": "ここは映層。反射の中の、もうひとつの街。"
+        },
+        {
+          "type": "show",
+          "char": "luche",
+          "expr": "smile",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "ルシェ",
+          "text": "鏡の中のきみ、正直だね。顔に『楽しい』って書いてある。"
+        },
+        {
+          "type": "choice",
+          "options": [
+            {
+              "text": "手を取る",
+              "goto": "luche_2a",
+              "effects": {
+                "aff_luche": 2
+              }
+            },
+            {
+              "text": "少しためらう",
+              "goto": "luche_2b"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "luche_2a",
+      "title": "映層の散歩・反応A",
+      "location": "夜の噴水広場",
+      "time": "同じ夜",
+      "bgm": "水面の神秘",
+      "bg": "bg_fountain_night",
+      "commands": [
+        {
+          "type": "show",
+          "char": "luche",
+          "expr": "shy",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "ルシェ",
+          "text": "……あったかい。実像化してると、こういうの、ちゃんと分かるんだ。"
+        },
+        {
+          "type": "jump",
+          "goto": "luche_2x"
+        }
+      ]
+    },
+    {
+      "id": "luche_2b",
+      "title": "映層の散歩・反応B",
+      "location": "夜の噴水広場",
+      "time": "同じ夜",
+      "bgm": "水面の神秘",
+      "bg": "bg_fountain_night",
+      "commands": [
+        {
+          "type": "show",
+          "char": "luche",
+          "expr": "neutral",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "ルシェ",
+          "text": "大丈夫。わたしが一緒なら、迷わないよ。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "彼女のほうから、指先だけを重ねた。"
+        },
+        {
+          "type": "jump",
+          "goto": "luche_2x"
+        }
+      ]
+    },
+    {
+      "id": "luche_2x",
+      "title": "映層の散歩・続き",
+      "location": "夜の噴水広場",
+      "time": "同じ夜",
+      "bgm": "水面の神秘",
+      "bg": "bg_fountain_night",
+      "commands": [
+        {
+          "type": "show",
+          "char": "luche",
+          "expr": "smile",
+          "position": "center"
+        },
+        {
+          "type": "show",
+          "char": "luche_reflect",
+          "expr": "wink",
+          "position": "left"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "水面に映ったルシェだけが、先にウインクする。"
+        },
+        {
+          "type": "hide",
+          "char": "luche_reflect"
+        },
+        {
+          "type": "show",
+          "char": "luche",
+          "expr": "wink",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "本人は、遅れて同じ顔をした。"
+        },
+        {
+          "type": "show",
+          "char": "luche",
+          "expr": "smile",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "ルシェ",
+          "text": "帰りは、ちゃんとこっちの街まで送るね。……明日、昼間にも会える？"
+        },
+        {
+          "type": "hide",
+          "char": "luche"
+        },
+        {
+          "type": "jump",
+          "goto": "luche_3"
+        }
+      ]
+    },
+    {
+      "id": "luche_3",
+      "title": "わたしは、わたしだよ",
+      "location": "昼下がりのカフェ",
+      "time": "翌日の昼下がり",
+      "bgm": "日常の中の鏡",
+      "bg": "bg_cafe_afternoon",
+      "commands": [
+        {
+          "type": "bg",
+          "id": "bg_cafe_afternoon"
+        },
+        {
+          "type": "show",
+          "char": "luche",
+          "expr": "smile",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "昼のカフェ。夜と違って、店内はよく話す声で埋まっている。ルシェの銀の艶だけが、日向で少し目立つ。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "見知った人が、こちらへ手を上げた。ルシェの顔を見て、別の名前を呼ぶ。"
+        },
+        {
+          "type": "text",
+          "speaker": "ルシェ",
+          "text": "……ふふ、よく似てるって言われるんだ。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "知人は、誤りのまま去っていった。訂正する暇を、ルシェは自分から置かなかった。"
+        },
+        {
+          "type": "show",
+          "char": "luche_reflect",
+          "expr": "sad",
+          "position": "left"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "窓の反射だけが、先に寂しそうな顔になる。本人は、まだ笑っていた。"
+        },
+        {
+          "type": "hide",
+          "char": "luche_reflect"
+        },
+        {
+          "type": "show",
+          "char": "luche",
+          "expr": "sad",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "ルシェ",
+          "text": "……わたしって、ちゃんとわたしに見えてる？"
+        },
+        {
+          "type": "show",
+          "char": "luche",
+          "expr": "neutral",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "ルシェ",
+          "text": "誰かの代わりじゃなくて、わたしを見て。"
+        },
+        {
+          "type": "choice",
+          "options": [
+            {
+              "text": "ルシェはルシェだよ。最初から",
+              "goto": "luche_3a",
+              "effects": {
+                "aff_luche": 3
+              }
+            },
+            {
+              "text": "気にしなくていいよ",
+              "goto": "luche_3b"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "luche_3a",
+      "title": "わたしは、わたしだよ・反応A",
+      "location": "昼下がりのカフェ",
+      "time": "翌日の昼下がり",
+      "bgm": "日常の中の鏡",
+      "bg": "bg_cafe_afternoon",
+      "commands": [
+        {
+          "type": "show",
+          "char": "luche",
+          "expr": "surprised",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "ルシェ",
+          "text": "……"
+        },
+        {
+          "type": "show",
+          "char": "luche",
+          "expr": "shy",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "ルシェ",
+          "text": "そういうの、ずるい。……ありがと。"
+        },
+        {
+          "type": "jump",
+          "goto": "luche_3x"
+        }
+      ]
+    },
+    {
+      "id": "luche_3b",
+      "title": "わたしは、わたしだよ・反応B",
+      "location": "昼下がりのカフェ",
+      "time": "翌日の昼下がり",
+      "bgm": "日常の中の鏡",
+      "bg": "bg_cafe_afternoon",
+      "commands": [
+        {
+          "type": "show",
+          "char": "luche",
+          "expr": "neutral",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "ルシェ",
+          "text": "……うん。そうだね。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "受け止めた、というより、いったん棚に上げた声だった。"
+        },
+        {
+          "type": "jump",
+          "goto": "luche_3x"
+        }
+      ]
+    },
+    {
+      "id": "luche_3x",
+      "title": "わたしは、わたしだよ・続き",
+      "location": "昼下がりのカフェ",
+      "time": "翌日の昼下がり",
+      "bgm": "日常の中の鏡",
+      "bg": "bg_cafe_afternoon",
+      "commands": [
+        {
+          "type": "show",
+          "char": "luche",
+          "expr": "smile",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "ルシェ",
+          "text": "夜が明けかける頃、屋上に来て。ガラスの手すり、あるでしょ。そこで、終わりまで話す。"
+        },
+        {
+          "type": "hide",
+          "char": "luche"
+        },
+        {
+          "type": "jump",
+          "goto": "luche_4"
+        }
+      ]
+    },
+    {
+      "id": "luche_4",
+      "title": "先映しの告白",
+      "location": "ガラスの手すりがある屋上",
+      "time": "夜明け",
+      "bgm": "反射と本音",
+      "bg": "bg_rooftop_dawn_glass",
+      "commands": [
+        {
+          "type": "bg",
+          "id": "bg_rooftop_dawn_glass"
+        },
+        {
+          "type": "show",
+          "char": "luche",
+          "expr": "neutral",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "ルシェ",
+          "text": "ねえ。わたし、表情作るのは得意なんだ。"
+        },
+        {
+          "type": "text",
+          "speaker": "ルシェ",
+          "text": "でも、本当の気持ちを言うのは、すごく下手。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "ガラスの手すりに、夜明けが薄い線を引いている。彼女は、その線を見ない。"
+        },
+        {
+          "type": "hide",
+          "char": "luche"
+        },
+        {
+          "type": "cg",
+          "id": "cg_luche_3"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "ガラスに映ったルシェが、本人より先に唇を動かす。無音で、すき、と読める。本人は、その遅れを、自分で見てしまう。"
+        },
+        {
+          "type": "text",
+          "speaker": "ルシェ",
+          "text": "……反射のほうが先に言っちゃった……ずるいよ、わたし。"
+        },
+        {
+          "type": "text",
+          "speaker": "ルシェ",
+          "text": "だから、ちゃんと言葉で言う。"
+        },
+        {
+          "type": "text",
+          "speaker": "ルシェ",
+          "text": "きみに選ばれたいの。ルシェとして。"
+        },
+        {
+          "type": "cg_hide"
+        },
+        {
+          "type": "show",
+          "char": "luche",
+          "expr": "shy",
+          "position": "center"
+        },
+        {
+          "type": "choice",
+          "options": [
+            {
+              "text": "僕も、ルシェがいい",
+              "goto": "luche_4a"
+            },
+            {
+              "text": "言葉を、少し探す",
+              "goto": "luche_4b"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "luche_4a",
+      "title": "先映しの告白・反応A",
+      "location": "ガラスの手すりがある屋上",
+      "time": "夜明け",
+      "bgm": "反射と本音",
+      "bg": "bg_rooftop_dawn_glass",
+      "commands": [
+        {
+          "type": "show",
+          "char": "luche",
+          "expr": "smile",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "ルシェ",
+          "text": "……うん。わたしも、きみを選ぶ。"
+        },
+        {
+          "type": "show",
+          "char": "luche_reflect",
+          "expr": "smile",
+          "position": "left"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "ガラスの反射と、ルシェ本人が、同時に笑う。先映しが、そこで止まった。"
+        },
+        {
+          "type": "hide",
+          "char": "luche_reflect"
+        },
+        {
+          "type": "hide",
+          "char": "luche"
+        },
+        {
+          "type": "jump",
+          "goto": "luche_end"
+        }
+      ]
+    },
+    {
+      "id": "luche_4b",
+      "title": "先映しの告白・反応B",
+      "location": "ガラスの手すりがある屋上",
+      "time": "夜明け",
+      "bgm": "反射と本音",
+      "bg": "bg_rooftop_dawn_glass",
+      "commands": [
+        {
+          "type": "show",
+          "char": "luche",
+          "expr": "smile",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "ルシェ",
+          "text": "急がなくていい。でも、わたしはもう言っちゃった。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "待たれて、言葉が、遅れて追いつく。僕も、ルシェがいい、と。代わりの誰かではなく、いま目の前にいるほうを。"
+        },
+        {
+          "type": "show",
+          "char": "luche_reflect",
+          "expr": "smile",
+          "position": "left"
+        },
+        {
+          "type": "text",
+          "speaker": "ルシェ",
+          "text": "……うん。わたしも、きみを選ぶ。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "ガラスの反射と、ルシェ本人が、同時に笑う。先映しが、そこで止まった。"
+        },
+        {
+          "type": "hide",
+          "char": "luche_reflect"
+        },
+        {
+          "type": "hide",
+          "char": "luche"
+        },
+        {
+          "type": "jump",
+          "goto": "luche_end"
+        }
+      ]
+    },
+    {
+      "id": "luche_end",
+      "title": "ルシェエンディング",
+      "location": "ルシェの部屋の玄関・姿見の前",
+      "time": "数日後の朝",
+      "bgm": "朝の静かな光",
+      "bg": "bg_sharehouse_genkan_morning",
+      "commands": [
+        {
+          "type": "bg",
+          "id": "bg_sharehouse_genkan_morning"
+        },
+        {
+          "type": "show",
+          "char": "luche",
+          "expr": "smile",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "数日後の朝。玄関の姿見の前で、ルシェは右耳のイヤーカフを留める。"
+        },
+        {
+          "type": "text",
+          "speaker": "ルシェ",
+          "text": "今日もかわいいね、わたし。"
+        },
+        {
+          "type": "show",
+          "char": "luche_reflect",
+          "expr": "smile",
+          "position": "left"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "鏡の中の彼女は、今日はちゃんと、同じタイミングで笑った。"
+        },
+        {
+          "type": "text",
+          "speaker": "ルシェ",
+          "text": "……ねえ、きみ。今日のわたし、ちゃんとわたしに見えてる？"
+        },
+        {
+          "type": "text",
+          "speaker": "{name}",
+          "text": "うん。ルシェにしか見えない。"
+        },
+        {
+          "type": "text",
+          "speaker": "ルシェ",
+          "text": "ふふ。じゃあ、行こ。わたしたちの、昼の街。"
+        },
+        {
+          "type": "ending",
+          "id": "end_luche",
+          "title": "選ばれた鏡像"
+        }
+      ]
+    },
+    {
+      "id": "claire_1",
+      "title": "いつもの席",
+      "location": "古本屋カフェ",
+      "time": "訪問した夜・晴れ",
+      "bgm": "紙の温かな室内",
+      "bg": "bg_bookstore_cafe_clear",
+      "commands": [
+        {
+          "type": "bg",
+          "id": "bg_bookstore_cafe_clear"
+        },
+        {
+          "type": "show",
+          "char": "claire",
+          "expr": "smile",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "クレア",
+          "text": "ふふ、また来てくれたんですね。"
+        },
+        {
+          "type": "text",
+          "speaker": "クレア",
+          "text": "いつもの席、空けておきました。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "窓際。紅茶の香りと、古い紙。雨の日のタオルは、棚の端に畳んである。ページをめくる音が、ときおりカウンターの向こうからする。"
+        },
+        {
+          "type": "show",
+          "char": "claire",
+          "expr": "shy",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "クレア",
+          "text": "名前で呼んでもいいですか？"
+        },
+        {
+          "type": "choice",
+          "options": [
+            {
+              "text": "僕は{name}。呼び捨てでもいいよ",
+              "goto": "claire_1a"
+            },
+            {
+              "text": "{name}です。クレアが呼びやすいほうで",
+              "goto": "claire_1b"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "claire_1a",
+      "title": "いつもの席・反応A",
+      "location": "古本屋カフェ",
+      "time": "訪問した夜・晴れ",
+      "bgm": "紙の温かな室内",
+      "bg": "bg_bookstore_cafe_clear",
+      "commands": [
+        {
+          "type": "show",
+          "char": "claire",
+          "expr": "shy",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "クレア",
+          "text": "……{name}さん、くらいで、いいですか。まだ、慣れなくて。"
+        },
+        {
+          "type": "jump",
+          "goto": "claire_1x"
+        }
+      ]
+    },
+    {
+      "id": "claire_1b",
+      "title": "いつもの席・反応B",
+      "location": "古本屋カフェ",
+      "time": "訪問した夜・晴れ",
+      "bgm": "紙の温かな室内",
+      "bg": "bg_bookstore_cafe_clear",
+      "commands": [
+        {
+          "type": "show",
+          "char": "claire",
+          "expr": "shy",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "クレア",
+          "text": "では、{name}さん。……ふふ、声にすると、少し緊張します。"
+        },
+        {
+          "type": "jump",
+          "goto": "claire_1x"
+        }
+      ]
+    },
+    {
+      "id": "claire_1x",
+      "title": "いつもの席・続き",
+      "location": "古本屋カフェ",
+      "time": "訪問した夜・晴れ",
+      "bgm": "紙の温かな室内",
+      "bg": "bg_bookstore_cafe_clear",
+      "commands": [
+        {
+          "type": "show",
+          "char": "claire",
+          "expr": "smile",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "それから彼女は、丁寧なまま、{name}さん、と呼ぶようになった。名前の音を、紅茶を注ぐあいだにも、一度だけ口の中で確認している。"
+        },
+        {
+          "type": "text",
+          "speaker": "クレア",
+          "text": "よかったら、次は温室へ。夜にだけ咲く子がいるんです。案内、できます。"
+        },
+        {
+          "type": "hide",
+          "char": "claire"
+        },
+        {
+          "type": "jump",
+          "goto": "claire_2"
+        }
+      ]
+    },
+    {
+      "id": "claire_2",
+      "title": "夜にだけ咲く子",
+      "location": "植物園の温室",
+      "time": "別の夜",
+      "bgm": "湿った緑の夜",
+      "bg": "bg_greenhouse_night",
+      "commands": [
+        {
+          "type": "bg",
+          "id": "bg_greenhouse_night"
+        },
+        {
+          "type": "show",
+          "char": "claire",
+          "expr": "smile",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "市の植物園は、月に何度か、夜開く。ガラスの内側は、昼よりあたたかい。土の匂いと、少し甘い蜜の匂い。"
+        },
+        {
+          "type": "text",
+          "speaker": "クレア",
+          "text": "この子、夜にだけ咲くんです。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "月下美人の蕾が、ゆっくり開いていく。白い花。甘い匂い。"
+        },
+        {
+          "type": "hide",
+          "char": "claire"
+        },
+        {
+          "type": "cg",
+          "id": "cg_claire_2"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "クレアが髪を耳にかけ、横顔を向ける。左耳のしずく型パールが、揺れる。視線は花へ。後ろの編み込み、右の小さなパールのヘアピン。湿度で、髪の一筋が頬につく。"
+        },
+        {
+          "type": "text",
+          "speaker": "クレア",
+          "text": "……見ないでください、今ちょっと顔が熱いので。"
+        },
+        {
+          "type": "text",
+          "speaker": "クレア",
+          "text": "あなたの好きな花、まだ聞いてなかったです。"
+        },
+        {
+          "type": "cg_hide"
+        },
+        {
+          "type": "show",
+          "char": "claire",
+          "expr": "shy",
+          "position": "center"
+        },
+        {
+          "type": "choice",
+          "options": [
+            {
+              "text": "今見てる、これだよ",
+              "goto": "claire_2a"
+            },
+            {
+              "text": "クレアの好きな花が、先に聞きたい",
+              "goto": "claire_2b"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "claire_2a",
+      "title": "夜にだけ咲く子・反応A",
+      "location": "植物園の温室",
+      "time": "別の夜",
+      "bgm": "湿った緑の夜",
+      "bg": "bg_greenhouse_night",
+      "commands": [
+        {
+          "type": "show",
+          "char": "claire",
+          "expr": "shy",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "彼女の耳が、赤くなる。"
+        },
+        {
+          "type": "text",
+          "speaker": "クレア",
+          "text": "……そういうの、反則です。"
+        },
+        {
+          "type": "jump",
+          "goto": "claire_2x"
+        }
+      ]
+    },
+    {
+      "id": "claire_2b",
+      "title": "夜にだけ咲く子・反応B",
+      "location": "植物園の温室",
+      "time": "別の夜",
+      "bgm": "湿った緑の夜",
+      "bg": "bg_greenhouse_night",
+      "commands": [
+        {
+          "type": "show",
+          "char": "claire",
+          "expr": "smile",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "クレア",
+          "text": "わたしは……夜に咲く子が、好きです。待って、ようやく開くところを見るのが。"
+        },
+        {
+          "type": "jump",
+          "goto": "claire_2x"
+        }
+      ]
+    },
+    {
+      "id": "claire_2x",
+      "title": "夜にだけ咲く子・続き",
+      "location": "植物園の温室",
+      "time": "別の夜",
+      "bgm": "湿った緑の夜",
+      "bg": "bg_greenhouse_night",
+      "commands": [
+        {
+          "type": "show",
+          "char": "claire",
+          "expr": "neutral",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "クレア",
+          "text": "昔は、植物園で働くのが夢でした。この街を出る話も、一度だけ。"
+        },
+        {
+          "type": "text",
+          "speaker": "クレア",
+          "text": "お店を見る人が足りなくて、残りました。失敗、とは思ってないんです。"
+        },
+        {
+          "type": "show",
+          "char": "claire",
+          "expr": "smile",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "クレア",
+          "text": "残ったのは、別の咲き方だったのかもしれないです。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "月下美人は、もう、開ききっていた。短い花の時間を、彼女は惜しまずに見ている。"
+        },
+        {
+          "type": "hide",
+          "char": "claire"
+        },
+        {
+          "type": "jump",
+          "goto": "claire_3"
+        }
+      ]
+    },
+    {
+      "id": "claire_3",
+      "title": "すれ違い",
+      "location": "雨の夜の古本屋〜街路",
+      "time": "また別の、雨の夜",
+      "bgm": "行き違いの雨",
+      "bg": "bg_bookstore_cafe_closed_rain",
+      "commands": [
+        {
+          "type": "bg",
+          "id": "bg_street_rain_night"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "約束は、店だったはずだ。雨の夜。シャッターは、降りていた。時計を見るたび、雨音だけが先に進む。"
+        },
+        {
+          "type": "bg",
+          "id": "bg_greenhouse_ext_closed"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "温室のほうへ回っても、門は閉じている。"
+        },
+        {
+          "type": "bg",
+          "id": "bg_bookstore_cafe_closed_rain"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "戻ると、軒下に、クレアがいた。水筒の紅茶。濡れた舗道。"
+        },
+        {
+          "type": "show",
+          "char": "claire",
+          "expr": "sad",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "クレア",
+          "text": "すれ違い、ましたね。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "声は、責めていない。濡れた前髪を、指で耳にかける。パールが、小さく光る。"
+        },
+        {
+          "type": "text",
+          "speaker": "クレア",
+          "text": "雨が強くて、早めに閉めて、温室かと思ったんです。{name}さんは、店へ。"
+        },
+        {
+          "type": "text",
+          "speaker": "クレア",
+          "text": "待つのは得意、なはずなんです。今夜は、うまくいかなくて。"
+        },
+        {
+          "type": "show",
+          "char": "claire",
+          "expr": "shy",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "何か言いかけて、止める。湯気だけが、二人のあいだに立った。届かなかったのは、約束の場所だけで、気持ちまでは消えなかったのが、かえって残る。"
+        },
+        {
+          "type": "text",
+          "speaker": "クレア",
+          "text": "……おやすみなさい。次は、場所を一つにしましょう。"
+        },
+        {
+          "type": "hide",
+          "char": "claire"
+        },
+        {
+          "type": "jump",
+          "goto": "claire_4"
+        }
+      ]
+    },
+    {
+      "id": "claire_4",
+      "title": "わたしから",
+      "location": "桜の並木道",
+      "time": "散りはじめの夜",
+      "bgm": "告白の夜桜",
+      "bg": "bg_sakura_street_night",
+      "commands": [
+        {
+          "type": "bg",
+          "id": "bg_sakura_street_night"
+        },
+        {
+          "type": "show",
+          "char": "claire",
+          "expr": "shy",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "それから、少し日が経った。夜の並木は、桜が散りはじめていた。街灯の下で、花びらが遅れて落ちる。雨の行き違いは、もう、持ち出されない。"
+        },
+        {
+          "type": "hide",
+          "char": "claire"
+        },
+        {
+          "type": "cg",
+          "id": "cg_claire_3"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "クレアが、先に手を伸ばす。視線は重ねようとする手のほうへ、伏し目。左のパール。編み込み。クリームのニット。散る桜。顔は、赤い。"
+        },
+        {
+          "type": "text",
+          "speaker": "クレア",
+          "text": "待つのは得意なんです。でも、今日は待ちたくなくて。"
+        },
+        {
+          "type": "text",
+          "speaker": "クレア",
+          "text": "わたし、思ってたよりずっと欲張りみたいです。"
+        },
+        {
+          "type": "text",
+          "speaker": "クレア",
+          "text": "{name}さんのことが、好きです。"
+        },
+        {
+          "type": "text",
+          "speaker": "クレア",
+          "text": "今度は、わたしから捕まえに行きますね。"
+        },
+        {
+          "type": "cg_hide"
+        },
+        {
+          "type": "show",
+          "char": "claire",
+          "expr": "smile",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "指が、先に届いていた。彼女の手が、少し冷たくて、確かだった。待たれる側で終わらない、と決めたあとの手だった。"
+        },
+        {
+          "type": "hide",
+          "char": "claire"
+        },
+        {
+          "type": "jump",
+          "goto": "claire_end"
+        }
+      ]
+    },
+    {
+      "id": "claire_end",
+      "title": "クレアエンディング",
+      "location": "古本屋カフェ",
+      "time": "数日後の雨の夕方",
+      "bgm": "静かな雨の室内",
+      "bg": "bg_bookstore_cafe_rain",
+      "commands": [
+        {
+          "type": "bg",
+          "id": "bg_bookstore_cafe_rain"
+        },
+        {
+          "type": "show",
+          "char": "claire",
+          "expr": "smile",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "数日後の雨の夕方。古本屋カフェの窓際の席に、湯気の立つ紅茶が二つ並んでいる。"
+        },
+        {
+          "type": "text",
+          "speaker": "クレア",
+          "text": "タオル、もう要らないですね。{name}さん、傘を持ってくるようになったので。"
+        },
+        {
+          "type": "text",
+          "speaker": "クレア",
+          "text": "……でも、雨の日はやっぱり、ここにいてほしいです。"
+        },
+        {
+          "type": "text",
+          "speaker": "{name}",
+          "text": "うん。晴れの日も来るよ。"
+        },
+        {
+          "type": "text",
+          "speaker": "クレア",
+          "text": "ふふ。じゃあ、いつもの席は、ずっと空けておきますね。"
+        },
+        {
+          "type": "ending",
+          "id": "end_claire",
+          "title": "わたしから捕まえに行く"
+        }
+      ]
+    },
+    {
+      "id": "normal_1",
+      "title": "隣には座らない夜",
+      "location": "夜の街・点在",
+      "time": "その後の夜",
+      "bgm": "ほろ苦い距離",
+      "bg": "bg_street_night_clear",
+      "commands": [
+        {
+          "type": "bg",
+          "id": "bg_street_night_clear"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "誰のところにも寄らなかった夜の、続き。何日か、同じように歩いた。坂の角度も、店の閉まる時間も、もう身体が覚えている。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "六人は、それぞれの場所にいた。遠ざかったわけではない。踏み込まれなかっただけだ。"
+        },
+        {
+          "type": "bg",
+          "id": "bg_bookstore_cafe_clear"
+        },
+        {
+          "type": "show",
+          "char": "claire",
+          "expr": "smile",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "古本屋のシャッターを、クレアが降ろしている。"
+        },
+        {
+          "type": "text",
+          "speaker": "クレア",
+          "text": "お気をつけて。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "雨の日のタオルは、もう、出てこない。店員としての、優しい声だけが残る。常連と呼ぶには、少しだけ早い会釈。"
+        },
+        {
+          "type": "hide",
+          "char": "claire"
+        },
+        {
+          "type": "bg",
+          "id": "bg_flower_cafe_night"
+        },
+        {
+          "type": "show",
+          "char": "cecilia",
+          "expr": "neutral",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "花屋の窓。セシリアは、ユリに軽く目礼して、通りを過ぎる。前髪は、下がったまま。名前を呼ばれても、今夜は、止まらない。観察の目は、もう、こちらへ深くは来ない。"
+        },
+        {
+          "type": "hide",
+          "char": "cecilia"
+        },
+        {
+          "type": "bg",
+          "id": "bg_photo_cafe_night"
+        },
+        {
+          "type": "show",
+          "char": "lumia",
+          "expr": "neutral",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "写真館カフェ。ルミアはカウンターで、レンズを拭いている。目が合って、浅い会釈。"
+        },
+        {
+          "type": "text",
+          "speaker": "ルミア",
+          "text": "今夜も、撮らないや。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "カメラは、脚もとに閉じられたまま。隣の席は、空いていても、勧められない。"
+        },
+        {
+          "type": "hide",
+          "char": "lumia"
+        },
+        {
+          "type": "jump",
+          "goto": "normal_2"
+        }
+      ]
+    },
+    {
+      "id": "normal_2",
+      "title": "同じ距離の六人",
+      "location": "夜の街・点在",
+      "time": "その後の夜",
+      "bgm": "ほろ苦い距離",
+      "bg": "bg_rooftop_bar_calm",
+      "commands": [
+        {
+          "type": "bg",
+          "id": "bg_rooftop_bar_calm"
+        },
+        {
+          "type": "show",
+          "char": "selene",
+          "expr": "neutral",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "屋上バー。セレーヌは手すりにいる。遠くから、グラスを少しだけ上げた。隣の席へは、呼ばない。常連同士の、短い礼。"
+        },
+        {
+          "type": "hide",
+          "char": "selene"
+        },
+        {
+          "type": "bg",
+          "id": "bg_shopstreet_night"
+        },
+        {
+          "type": "show",
+          "char": "luche_reflect",
+          "expr": "smile",
+          "position": "left"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "窓ガラス。ルシェの反射が、先に小さく手を振る。本人は、もう通りの向こうだ。追いかける理由を、僕は持たなかった。反射だけが、未練のように少し残る。"
+        },
+        {
+          "type": "hide",
+          "char": "luche_reflect"
+        },
+        {
+          "type": "bg",
+          "id": "bg_sharehouse_hall_night"
+        },
+        {
+          "type": "show",
+          "char": "lilia",
+          "expr": "neutral",
+          "position": "center"
+        },
+        {
+          "type": "text",
+          "speaker": "リリア",
+          "text": "夜食、置いとくね。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "袋だけ出して、顔はすぐ引く。からかいも、今夜はない。お隣さんの特権は、使われないまま、袋の重さだけが残った。"
+        },
+        {
+          "type": "hide",
+          "char": "lilia"
+        },
+        {
+          "type": "jump",
+          "goto": "normal_end"
+        }
+      ]
+    },
+    {
+      "id": "normal_end",
+      "title": "ノーマルエンディング",
+      "location": "坂の途中",
+      "time": "その後の夜",
+      "bgm": "ほろ苦い距離",
+      "bg": "bg_street_night_clear",
+      "commands": [
+        {
+          "type": "bg",
+          "id": "bg_street_night_clear"
+        },
+        {
+          "type": "cg",
+          "id": "cg_normal"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "同じ夜の、同じ街。六人はそれぞれの場所で暮らしていて、僕は坂の途中にいる。誰も、こちらを見つめ続けてはいない。どれも、優しさの残った距離だった。踏み込めば開けたはずの席を、今夜の僕は、全部、通り過ぎた。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "誰かの隣には、座らなかった。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "それでもこの街の夜は、僕を追い出さなかった。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "また会う。常連として、客として、お隣さんとして。呼びかければ、きっと振り返る人たちだ。"
+        },
+        {
+          "type": "text",
+          "speaker": null,
+          "text": "それ以上の夜は、開かなかった。隣の席は、いつまでも、空いたままにできた。"
+        },
+        {
+          "type": "cg_hide"
+        },
+        {
+          "type": "ending",
+          "id": "end_normal",
+          "title": "開かなかった夜"
+        }
+      ]
+    }
+  ]
+}
